@@ -6,7 +6,9 @@
 // Standard GPL and phpdocs
 require_once(__DIR__ . '/../../config.php');
 require_once('initial_form.php');
-require_once('game_forms/balloons_form.php');
+require_once('game_forms/balloons_form1.php');
+require_once('game_forms/balloons_form2.php');
+require_once('generator/balloons.php');
 
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
@@ -25,24 +27,21 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 $initialform = new initial_form();
-$balloonsform = new balloons_form();
+$balloonsform1 = new balloons_form1();
+$balloonsform2 = new balloons_form2();
 
-if ($fromform = $balloonsform->get_data()) {
-
-	if ($fromform->submitbutton == get_string('next', 'local_gamecreator')) {
-
-		$balloonsform = new balloons_form(null, array('numlevels'=>$fromform->numlevels, 'numquestions'=>$fromform->numquestions));
-		$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
-		echo $OUTPUT->box($info);
-		$balloonsform->display();
-
-	} else if ($fromform->submitbutton == get_string('creategame', 'local_gamecreator')) {
-
-		echo "Balloons game created!";
+if ($fromform = $balloonsform1->get_data()) {
 
 
-	}
+	$balloonsform2 = new balloons_form2(null, array('numlevels'=>$fromform->numlevels, 'numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle, 'description'=>$fromform->gamedescription));
+	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
+	echo $OUTPUT->box($info);
+	$balloonsform2->display();
 
+
+} else if ($fromform = $balloonsform2->get_data()) {
+
+	create_balloons_game($_POST);
 
 } else if ($fromform = $initialform->get_data()) {
 
@@ -52,7 +51,7 @@ if ($fromform = $balloonsform->get_data()) {
 
 	switch ($gametype) {
 		case 0 :
-			$balloonsform = new balloons_form();
+			$balloonsform = new balloons_form1();
 			$info = format_text(get_string('balloonsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
 			$balloonsform->display();
