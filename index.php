@@ -8,7 +8,10 @@ require_once(__DIR__ . '/../../config.php');
 require_once('initial_form.php');
 require_once('game_forms/balloons_form1.php');
 require_once('game_forms/balloons_form2.php');
+require_once('game_forms/arrange_form.php');
 require_once('generator/balloons.php');
+require_once('generator/arrange.php');
+
 
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
@@ -28,6 +31,7 @@ echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 $initialform = new initial_form();
 $balloonsform1 = new balloons_form1();
 $balloonsform2 = new balloons_form2();
+$arrangeform = new arrange_form();
 
 if ($fromform = $balloonsform1->get_data()) {
 
@@ -42,7 +46,15 @@ if ($fromform = $balloonsform1->get_data()) {
 
 	$link = create_balloons_game($_POST);
 	// render success message HTML and link to created game
-	$renderable = new \local_gamecreator\output\success_html($link);
+	$renderable = new \local_gamecreator\output\success_html($link, 920, 720);
+	echo $success_output->render($renderable);
+
+} else if ($fromform = $arrangeform->get_data()) {
+
+	$link = create_arrange_game($fromform->foldername, $arrangeform);
+
+	// render success message HTML and link to created game
+	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
 	echo $success_output->render($renderable);
 
 } else if ($fromform = $initialform->get_data()) {
@@ -59,7 +71,10 @@ if ($fromform = $balloonsform1->get_data()) {
 			$balloonsform->display();
 			break;
 		case 1 :
-			echo "Not available yet.";
+			$arrangeform = new arrange_form();
+			$info = format_text(get_string('arrangeinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+			echo $OUTPUT->box($info);
+			$arrangeform->display();
 			break;
 		case 2 :
 			echo "Not available yet.";

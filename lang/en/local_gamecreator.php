@@ -27,3 +27,7 @@ $string['speed'] = 'Balloon speed';
 $string['speed_help'] = 'Increasing the balloon speed means that the balloons will reach the top of the screen sooner, and the player will have LESS time to solve the question. Decreasing the balloon speed will make the level easier. Do not increase/decrease the speed too many times, or the game will become unplayable.';
 $string['levelname'] = 'Level name';
 $string['levelname_help'] = 'This text will appear on the game screen at the beginning of each level. Default is Level (#).';
+
+// arrange
+$string['foldername'] = 'Folder name';
+$string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box.';
