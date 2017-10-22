@@ -3,12 +3,13 @@
 
 function create_balloons_game($data) {
 
-	echo var_dump($data);
-
 	$title = $data['title'];
-	$description = $data['description'];
-	$numlevels = $data['numlevels'];
-	$numquestions = $data['numquestions'];
 
-	
+	$file = fopen("../../LOR/games/balloons/versions/" . $title . '.json', 'w');	
+	fwrite($file, json_encode($data));
+	fclose($file);
+
+	$link = new moodle_url("/LOR/games/balloons/balloons.php?title=" . rawurlencode($title));
+
+	return $link;
 }

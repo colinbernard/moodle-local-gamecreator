@@ -20,8 +20,7 @@ $PAGE->set_heading($title);
 $PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('standard');
 
-
-$PAGE->requires->js( new moodle_url($CFG->wwwroot . '/local/gamecreator/js/onselect.js'));
+$success_output = $PAGE->get_renderer('local_gamecreator');
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
@@ -41,7 +40,10 @@ if ($fromform = $balloonsform1->get_data()) {
 
 } else if ($fromform = $balloonsform2->get_data()) {
 
-	create_balloons_game($_POST);
+	$link = create_balloons_game($_POST);
+	// render success message HTML and link to created game
+	$renderable = new \local_gamecreator\output\success_html($link);
+	echo $success_output->render($renderable);
 
 } else if ($fromform = $initialform->get_data()) {
 

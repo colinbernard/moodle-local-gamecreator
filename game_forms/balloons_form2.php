@@ -25,11 +25,11 @@ class balloons_form2 extends moodleform {
 
 			// speed
 			$radioarray = array();
-			$radioarray[] = $balloonsform->createElement('radio', "levelspeed$level", '', get_string('speed_increase', 'local_gamecreator'), "inc$level");
-			$radioarray[] = $balloonsform->createElement('radio', "levelspeed$level", '', get_string('speed_decrease', 'local_gamecreator'), "dec$level");
-			$radioarray[] = $balloonsform->createElement('radio', "levelspeed$level", '', get_string('speed_no', 'local_gamecreator'), "no$level");
+			$radioarray[] = $balloonsform->createElement('radio', "levelspeed$level", '', get_string('speed_increase', 'local_gamecreator'), 1);
+			$radioarray[] = $balloonsform->createElement('radio', "levelspeed$level", '', get_string('speed_decrease', 'local_gamecreator'), -1);
+			$radioarray[] = $balloonsform->createElement('radio', "levelspeed$level", '', get_string('speed_no', 'local_gamecreator'), 0);
 	        $balloonsform->addGroup($radioarray, 'balloonspeed', get_string('speed', 'local_gamecreator'), array(' '), false);
-	        $balloonsform->setDefault("levelspeed$level", "no$level");
+	        $balloonsform->setDefault("levelspeed$level", 0);
 	        $balloonsform->addHelpButton("balloonspeed", "speed", 'local_gamecreator');
 
 			for ($question = 0; $question <= $this->_customdata['numquestions']; $question++) {
@@ -43,7 +43,7 @@ class balloons_form2 extends moodleform {
 				$balloonsform->setType("a_".$level.$question, PARAM_TEXT);
 
 				// options
-				for ($i = 0; $i < 4; $i++) {
+				for ($i = 0; $i < 5; $i++) {
 					$balloonsform->addElement('text', "o_".$level.$question.$i, get_string('option', 'local_gamecreator'));
 					$balloonsform->setType("o_".$level.$question.$i, PARAM_TEXT);
 				}
