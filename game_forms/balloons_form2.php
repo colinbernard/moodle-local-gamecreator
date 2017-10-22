@@ -43,7 +43,7 @@ class balloons_form2 extends moodleform {
 				$balloonsform->setType("a_".$level.$question, PARAM_TEXT);
 
 				// options
-				for ($i = 0; $i < 5; $i++) {
+				for ($i = 0; $i < 4; $i++) {
 					$balloonsform->addElement('text', "o_".$level.$question.$i, get_string('option', 'local_gamecreator'));
 					$balloonsform->setType("o_".$level.$question.$i, PARAM_TEXT);
 				}
