@@ -26,6 +26,8 @@ $PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('standard');
 
 $success_output = $PAGE->get_renderer('local_gamecreator');
+$initial_output = $PAGE->get_renderer('local_gamecreator');
+
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
@@ -127,6 +129,10 @@ if ($fromform = $balloonsform1->get_data()) {
 	// display short text description on initial form page
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
+
+	// show initial HTML
+	$renderable = new \local_gamecreator\output\initial_html();
+	echo $initial_output->render($renderable);
 
 	// show the initial form
 	$initialform->display();
