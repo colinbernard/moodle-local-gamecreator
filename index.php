@@ -7,9 +7,11 @@ require_once('game_forms/balloons_form1.php');
 require_once('game_forms/balloons_form2.php');
 require_once('game_forms/arrange_form.php');
 require_once('game_forms/categories2_form.php');
+require_once('game_forms/categories3_form.php');
 require_once('generator/balloons.php');
 require_once('generator/arrange.php');
 require_once('generator/categories2.php');
+require_once('generator/categories3.php');
 
 
 // set up the page
@@ -32,6 +34,7 @@ $balloonsform1 = new balloons_form1();
 $balloonsform2 = new balloons_form2();
 $arrangeform = new arrange_form();
 $categories2form = new categories2_form();
+$categories3form = new categories3_form();
 
 if ($fromform = $balloonsform1->get_data()) {
 
@@ -64,6 +67,13 @@ if ($fromform = $balloonsform1->get_data()) {
 	echo $success_output->render($renderable);
 
 
+} else if ($fromform = $categories3form->get_data()) {
+
+	$link = create_categories3_game($fromform->foldername, $fromform->answers, $categories3form);
+
+	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
+	echo $success_output->render($renderable);
+
 } else if ($fromform = $initialform->get_data()) {
 
 	$gametype = $fromform->gametype;
@@ -90,7 +100,10 @@ if ($fromform = $balloonsform1->get_data()) {
 			$categories2form->display();		
 			break;
 		case 3 :
-			echo "Not available yet.";
+			$categories3form = new categories3_form();
+			$info = format_text(get_string('categories3info', 'local_gamecreator'), FORMAT_MARKDOWN);
+			echo $OUTPUT->box($info);
+			$categories3form->display();		
 			break;
 		case 4 :
 			echo "Not available yet.";

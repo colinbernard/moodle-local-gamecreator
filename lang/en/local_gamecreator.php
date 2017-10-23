@@ -35,11 +35,12 @@ $string['levelname_help'] = 'This text will appear on the game screen at the beg
 $string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box. The images must be of type .jpg, and should be 200x100 pixels.';
 $string['image'] = 'Image';
 
-// categories2
+// categories2 and 3
 $string['categories2info'] = 'You have selected the game type "Categories2", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category1, category2", you would input "12112". Select two images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be PNGs. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
 $string['categoryimage'] = 'Category Image';
 $string['questionimage'] = 'Question Image';
 $string['answer'] = 'Answers';
 $string['categoriesheader'] = 'Categories';
 $string['questionsheader'] = 'Questions';
+$string['categories3info'] = 'You have selected the game type "Categories3", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category3, category2", you would input "12132". Select three images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be PNGs. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
 
