@@ -15,10 +15,10 @@ class arrange_form extends moodleform {
 		$mform->setType('foldername', PARAM_TEXT);
 
 
-		$mform->addElement('filepicker', 'image1', get_string('file'), null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
-		$mform->addElement('filepicker', 'image2', get_string('file'), null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
-		$mform->addElement('filepicker', 'image3', get_string('file'), null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
-		$mform->addElement('filepicker', 'image4', get_string('file'), null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
+		$mform->addElement('filepicker', 'image1', get_string('image', 'local_gamecreator').' 1', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
+		$mform->addElement('filepicker', 'image2', get_string('image', 'local_gamecreator').' 2', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
+		$mform->addElement('filepicker', 'image3', get_string('image', 'local_gamecreator').' 3', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
+		$mform->addElement('filepicker', 'image4', get_string('image', 'local_gamecreator').' 4', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.jpg')));
 
 
 

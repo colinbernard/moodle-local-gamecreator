@@ -1,5 +1,6 @@
 <?php
 
+// general
 $string['pluginname'] = 'BCLN Game Creator';
 $string['heading'] = 'BCLN Game Creator';
 $string['gametype_select'] = 'Select a game type';
@@ -10,6 +11,8 @@ $string['gamedescription'] = 'Game description';
 $string['gamedescription_help'] = 'This description will be displayed on the start screen window. You should include what type of questions the user will see.';
 $string['creategame'] = 'Create Game';
 $string['initialinfo'] = 'This plugin allows developers to create their own versions of exisiting HTML5 games. Start by selecting a game type.';
+$string['foldername'] = 'Folder name';
+
 
 // balloons
 $string['balloonsinfo'] = 'You have selected the game type "Balloons", fill out the following information to continue creating your own version of the game. View the help buttons if you are unclear on how to fill out the form.';
@@ -29,5 +32,14 @@ $string['levelname'] = 'Level name';
 $string['levelname_help'] = 'This text will appear on the game screen at the beginning of each level. Default is Level (#).';
 
 // arrange
-$string['foldername'] = 'Folder name';
-$string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box.';
+$string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box. The images must be of type .jpg, and should be 200x100 pixels.';
+$string['image'] = 'Image';
+
+// categories2
+$string['categories2info'] = 'You have selected the game type "Categories2", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category1, category2", you would input "12112". Select two images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be PNGs. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
+$string['categoryimage'] = 'Category Image';
+$string['questionimage'] = 'Question Image';
+$string['answer'] = 'Answers';
+$string['categoriesheader'] = 'Categories';
+$string['questionsheader'] = 'Questions';
+

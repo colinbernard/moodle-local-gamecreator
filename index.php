@@ -1,16 +1,15 @@
 <?php
 
 
-
-
-// Standard GPL and phpdocs
 require_once(__DIR__ . '/../../config.php');
 require_once('initial_form.php');
 require_once('game_forms/balloons_form1.php');
 require_once('game_forms/balloons_form2.php');
 require_once('game_forms/arrange_form.php');
+require_once('game_forms/categories2_form.php');
 require_once('generator/balloons.php');
 require_once('generator/arrange.php');
+require_once('generator/categories2.php');
 
 
 // set up the page
@@ -32,6 +31,7 @@ $initialform = new initial_form();
 $balloonsform1 = new balloons_form1();
 $balloonsform2 = new balloons_form2();
 $arrangeform = new arrange_form();
+$categories2form = new categories2_form();
 
 if ($fromform = $balloonsform1->get_data()) {
 
@@ -45,7 +45,7 @@ if ($fromform = $balloonsform1->get_data()) {
 } else if ($fromform = $balloonsform2->get_data()) {
 
 	$link = create_balloons_game($_POST);
-	// render success message HTML and link to created game
+
 	$renderable = new \local_gamecreator\output\success_html($link, 920, 720);
 	echo $success_output->render($renderable);
 
@@ -53,9 +53,16 @@ if ($fromform = $balloonsform1->get_data()) {
 
 	$link = create_arrange_game($fromform->foldername, $arrangeform);
 
-	// render success message HTML and link to created game
 	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
 	echo $success_output->render($renderable);
+
+} else if ($fromform = $categories2form->get_data()) {
+
+	$link = create_categories2_game($fromform->foldername, $fromform->answers, $categories2form);
+
+	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
+	echo $success_output->render($renderable);
+
 
 } else if ($fromform = $initialform->get_data()) {
 
@@ -77,7 +84,10 @@ if ($fromform = $balloonsform1->get_data()) {
 			$arrangeform->display();
 			break;
 		case 2 :
-			echo "Not available yet.";
+			$categories2form = new categories2_form();
+			$info = format_text(get_string('categories2info', 'local_gamecreator'), FORMAT_MARKDOWN);
+			echo $OUTPUT->box($info);
+			$categories2form->display();		
 			break;
 		case 3 :
 			echo "Not available yet.";
