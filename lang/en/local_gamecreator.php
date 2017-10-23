@@ -37,10 +37,16 @@ $string['image'] = 'Image';
 
 // categories2 and 3
 $string['categories2info'] = 'You have selected the game type "Categories2", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category1, category2", you would input "12112". Select two images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be PNGs. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
-$string['categoryimage'] = 'Category Image';
-$string['questionimage'] = 'Question Image';
+$string['categoryimage'] = 'Category image';
+$string['questionimage'] = 'Question image';
 $string['answer'] = 'Answers';
 $string['categoriesheader'] = 'Categories';
 $string['questionsheader'] = 'Questions';
 $string['categories3info'] = 'You have selected the game type "Categories3", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category3, category2", you would input "12132". Select three images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be PNGs. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
 
+// spiderlove
+$string['spiderloveinfo'] = 'You have selected the game type "SpiderLove". Input a unique folder name (will not be visible to the user). Input 10 images total. All images must be of type jpg. The recommended image size is 160x75 pixels. The first left image will match with the first right image and so on. The images will be shuffled each time the game is loaded.';
+$string['leftimage'] = 'Left image';
+$string['rightimage'] = 'Right image';
+$string['leftheader'] = 'Left Images';
+$string['rightheader'] = 'Right Images';

@@ -8,11 +8,12 @@ require_once('game_forms/balloons_form2.php');
 require_once('game_forms/arrange_form.php');
 require_once('game_forms/categories2_form.php');
 require_once('game_forms/categories3_form.php');
+require_once('game_forms/spiderlove_form.php');
 require_once('generator/balloons.php');
 require_once('generator/arrange.php');
 require_once('generator/categories2.php');
 require_once('generator/categories3.php');
-
+require_once('generator/spiderlove.php');
 
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
@@ -35,6 +36,7 @@ $balloonsform2 = new balloons_form2();
 $arrangeform = new arrange_form();
 $categories2form = new categories2_form();
 $categories3form = new categories3_form();
+$spiderloveform = new spiderlove_form();
 
 if ($fromform = $balloonsform1->get_data()) {
 
@@ -74,6 +76,13 @@ if ($fromform = $balloonsform1->get_data()) {
 	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
 	echo $success_output->render($renderable);
 
+} else if ($fromform = $spiderloveform->get_data()) {
+
+	$link = create_spiderlove_game($fromform->foldername, $spiderloveform);
+
+	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
+	echo $success_output->render($renderable);
+
 } else if ($fromform = $initialform->get_data()) {
 
 	$gametype = $fromform->gametype;
@@ -106,7 +115,10 @@ if ($fromform = $balloonsform1->get_data()) {
 			$categories3form->display();		
 			break;
 		case 4 :
-			echo "Not available yet.";
+			$spiderloveform = new spiderlove_form();
+			$info = format_text(get_string('spiderloveinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+			echo $OUTPUT->box($info);
+			$spiderloveform->display();		
 			break;
 	}
 
