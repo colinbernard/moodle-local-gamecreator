@@ -15,22 +15,27 @@ class balloons_form1 extends moodleform {
 		$mform->addElement('text', 'gametitle', get_string('gametitle', 'local_gamecreator'));
 		$mform->setType('gametitle', PARAM_TEXT);
 		$mform->addHelpButton('gametitle', 'gametitle', 'local_gamecreator');
-
+		$mform->addRule('gametitle', get_string('required'), 'required', null);
 
 		// Description
 		$mform->addElement('textarea', 'gamedescription', get_string('gamedescription', 'local_gamecreator'), 'wrap="virtual" rows="3" cols="50"');
 		$mform->setType('gamedescription', PARAM_TEXT);
 		$mform->addHelpButton('gamedescription', 'gamedescription', 'local_gamecreator');
+		$mform->addRule('gamedescription', get_string('required'), 'required', null);
 
 		// Levels
 		$numbers = [];
 		for ($i = 1; $i <= 8; $i++) {
 			$numbers[] = $i;
 		}
+
 		$mform->addElement('select', 'numlevels', get_string('numlevels', 'local_gamecreator'), $numbers);
 		$mform->setDefault('numlevels', 4);
+		$mform->addRule('numlevels', get_string('required'), 'required', null);
+
 		$mform->addElement('select', 'numquestions', get_string('numquestions', 'local_gamecreator'), $numbers);
 		$mform->setDefault('numquestions', 3);
+		$mform->addRule('numquestions', get_string('required'), 'required', null);
 
 
 		// Create Game Button
