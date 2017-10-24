@@ -45,5 +45,23 @@ class categories3_form extends moodleform {
 		$this->add_action_buttons(true, get_string('creategame', 'local_gamecreator'));
 	}
 
-	// TODO: validation
+	public function validation($data, $files) {
+
+		$errors = parent::validation($data, $files);
+
+		if (strlen((string)$data['answers']) != 5) {
+			$errors['answers'] = get_string('answers_error', 'local_gamecreator');
+		}
+
+		$str = (string)$data['answers'];
+		for ($i = 0; $i < strlen($str); $i++) {
+			$char = substr($str, $i, 1);
+
+			if (!($char == "1" || $char == "2" || $char == "3")) {
+				$errors['answers'] = get_string('answers_error3', 'local_gamecreator');
+			}
+		}
+
+		return $errors;
+	}
 }

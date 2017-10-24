@@ -45,5 +45,21 @@ class balloons_form1 extends moodleform {
 
 	}
 
-	// TODO: validation
+	public function validation($data, $files) {
+
+		$errors = parent::validation($data, $files);
+
+		$title = $data['gametitle'];
+		$description = $data['gamedescription'];
+
+		if (strlen($title) > 31) {
+			$errors['gametitle'] = get_string('gametitle_error', 'local_gamecreator');
+		}
+
+		if (strlen($description > 70)) {
+			$errors['gamedescription'] = get_string('gamedescription_error', 'local_gamecreator');
+		}
+
+		return $errors;
+	}
 }

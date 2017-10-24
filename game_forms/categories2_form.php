@@ -16,7 +16,7 @@ class categories2_form extends moodleform {
 		$mform->addRule('foldername', get_string('required'), 'required', null);
 
 		$mform->addElement('text', 'answers', get_string('answer', 'local_gamecreator'));
-		$mform->setType('answers', PARAM_TEXT);
+		$mform->setType('answers', PARAM_INT);
 		$mform->addRule('answers', get_string('required'), 'required', null);
 
 		$mform->addElement('header', 'categoriesheader', get_string('categoriesheader', 'local_gamecreator'));
@@ -43,5 +43,23 @@ class categories2_form extends moodleform {
 		$this->add_action_buttons(true, get_string('creategame', 'local_gamecreator'));
 	}
 
-	// TODO: validation
+	public function validation($data, $files) {
+
+		$errors = parent::validation($data, $files);
+
+		if (strlen((string)$data['answers']) != 5) {
+			$errors['answers'] = get_string('answers_error', 'local_gamecreator');
+		}
+
+		$str = (string)$data['answers'];
+		for ($i = 0; $i < strlen($str); $i++) {
+			$char = substr($str, $i, 1);
+
+			if (!($char == "1" || $char == "2")) {
+				$errors['answers'] = get_string('answers_error2', 'local_gamecreator');
+			}
+		}
+
+		return $errors;
+	}
 }

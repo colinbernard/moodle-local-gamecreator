@@ -45,5 +45,7 @@ class spiderlove_form extends moodleform {
 		$this->add_action_buttons(true, get_string('creategame', 'local_gamecreator'));
 	}
 
-	// TODO: validation
+	public function validation($data, $files) {
+		return array();
+	}
 }

@@ -30,6 +30,11 @@ $string['speed'] = 'Balloon speed';
 $string['speed_help'] = 'Increasing the balloon speed means that the balloons will reach the top of the screen sooner, and the player will have LESS time to solve the question. Decreasing the balloon speed will make the level easier. Do not increase/decrease the speed too many times, or the game will become unplayable.';
 $string['levelname'] = 'Level name';
 $string['levelname_help'] = 'This text will appear on the game screen at the beginning of each level. Default is Level (#).';
+$string['gametitle_error'] = 'Game title is too long!';
+$string['gamedescription_error'] = 'Description is too long!';
+$string['missing'] = 'Missing!';
+$string['answerinoptions'] = 'Do not include the answer as one of the options!';
+$string['duplicate'] = 'Duplicate options are not allowed!';
 
 // arrange
 $string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box. The images must be of type .jpg, and should be 200x100 pixels.';
@@ -43,6 +48,9 @@ $string['answer'] = 'Answers';
 $string['categoriesheader'] = 'Categories';
 $string['questionsheader'] = 'Questions';
 $string['categories3info'] = 'You have selected the game type "Categories3", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category3, category2", you would input "12132". Select three images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be PNGs. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
+$string['answers_error'] = "There must be 5 numbers here.";
+$string['answers_error2'] = 'Only include the numbers 1 and 2.';
+$string['answers_error2'] = 'Only include the numbers 1, 2 and 3.';
 
 // spiderlove
 $string['spiderloveinfo'] = 'You have selected the game type "SpiderLove". Input a unique folder name (will not be visible to the user). Input 10 images total. All images must be of type jpg. The recommended image size is 160x75 pixels. The first left image will match with the first right image and so on. The images will be shuffled each time the game is loaded.';

@@ -62,5 +62,45 @@ class balloons_form2 extends moodleform {
 
 	}
 
-	// TODO: validation
+	public function validation($data, $files) {
+
+		$errors = parent::validation($data, $files);
+
+		$numlevels = $data['numlevels'];
+		$numquestions = $data['numquestions'];
+
+		for ($i = 0; $i < $numlevels; $i++) {
+			for ($j = 0; $j < $numquestions; $j++) {
+				if ($data['q_'.$i.$j] == "") {
+					$errors['q_'.$i.$j] = get_string('missing', 'local_gamecreator');
+				}
+				if ($data['a_'.$i.$j] == "") {
+					$errors['a_'.$i.$j] = get_string('missing', 'local_gamecreator');
+				}
+
+				for ($k = 0; $k < 4; $k++) {
+					if ($data['o_'.$i.$j.$k] == "") {
+						$errors['o_'.$i.$j.$k] = get_string('missing', 'local_gamecreator');
+					}
+
+					if ($data['o_'.$i.$j.$k] == $data['a_'.$i.$j]) {
+						$errors['o_'.$i.$j.$k] = get_string('answerinoptions', 'local_gamecreator');
+					}
+
+					for ($l = 0; $l < 4; $l++) {
+						if ($l != $k) {
+							if ($data['o_'.$i.$j.$k] == $data['o_'.$i.$j.$l]) {
+								$errors['o_'.$i.$j.$k] = get_string('duplicate', 'local_gamecreator');
+								$errors['o_'.$i.$j.$l] = get_string('duplicate', 'local_gamecreator');
+							}
+						}
+					}
+
+				}
+			}
+		}
+
+
+		return $errors;
+	}
 }

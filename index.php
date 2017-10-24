@@ -93,10 +93,11 @@ if ($fromform = $balloonsform1->get_data()) {
 
 	switch ($gametype) {
 		case 0 :
-			$balloonsform = new balloons_form1();
+			$balloonsform1 = new balloons_form1();
 			$info = format_text(get_string('balloonsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
-			$balloonsform->display();
+			$balloonsform1->display();
+			$_SESSION['lastform'] = "balloons1";
 			break;
 		case 1 :
 			$arrangeform = new arrange_form();
@@ -130,12 +131,14 @@ if ($fromform = $balloonsform1->get_data()) {
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
 
+
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);
 
 	// show the initial form
 	$initialform->display();
+	
 }
 
 
