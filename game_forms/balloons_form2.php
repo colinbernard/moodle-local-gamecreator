@@ -69,17 +69,17 @@ class balloons_form2 extends moodleform {
 		$numlevels = $data['numlevels'];
 		$numquestions = $data['numquestions'];
 
-		for ($i = 0; $i < $numlevels; $i++) {
-			for ($j = 0; $j < $numquestions; $j++) {
-				if ($data['q_'.$i.$j] == "") {
+		for ($i = 0; $i <= $numlevels; $i++) {
+			for ($j = 0; $j <= $numquestions; $j++) {
+				if (empty($data['q_'.$i.$j])) {
 					$errors['q_'.$i.$j] = get_string('missing', 'local_gamecreator');
 				}
-				if ($data['a_'.$i.$j] == "") {
+				if (empty($data['a_'.$i.$j])) {
 					$errors['a_'.$i.$j] = get_string('missing', 'local_gamecreator');
 				}
 
 				for ($k = 0; $k < 4; $k++) {
-					if ($data['o_'.$i.$j.$k] == "") {
+					if (empty($data['o_'.$i.$j.$k])) {
 						$errors['o_'.$i.$j.$k] = get_string('missing', 'local_gamecreator');
 					}
 

@@ -40,23 +40,8 @@ $categories2form = new categories2_form();
 $categories3form = new categories3_form();
 $spiderloveform = new spiderlove_form();
 
-if ($fromform = $balloonsform1->get_data()) {
 
-
-	$balloonsform2 = new balloons_form2(null, array('numlevels'=>$fromform->numlevels, 'numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle, 'description'=>$fromform->gamedescription));
-	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
-	echo $OUTPUT->box($info);
-	$balloonsform2->display();
-
-
-} else if ($fromform = $balloonsform2->get_data()) {
-
-	$link = create_balloons_game($_POST);
-
-	$renderable = new \local_gamecreator\output\success_html($link, 920, 720);
-	echo $success_output->render($renderable);
-
-} else if ($fromform = $arrangeform->get_data()) {
+if ($fromform = $arrangeform->get_data()) {
 
 	$link = create_arrange_game($fromform->foldername, $arrangeform);
 
@@ -93,11 +78,10 @@ if ($fromform = $balloonsform1->get_data()) {
 
 	switch ($gametype) {
 		case 0 :
-			$balloonsform1 = new balloons_form1();
+			$balloonsform1 = new balloons_form1("balloons.php");
 			$info = format_text(get_string('balloonsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
 			$balloonsform1->display();
-			$_SESSION['lastform'] = "balloons1";
 			break;
 		case 1 :
 			$arrangeform = new arrange_form();
