@@ -17,11 +17,19 @@ class balloons_form1 extends moodleform {
 		$mform->addHelpButton('gametitle', 'gametitle', 'local_gamecreator');
 		$mform->addRule('gametitle', get_string('required'), 'required', null);
 
+		if (isset($_SESSION['gametitle'])) {
+			$mform->setDefault('gametitle', $_SESSION['gametitle']);
+		}
+
 		// Description
 		$mform->addElement('textarea', 'gamedescription', get_string('gamedescription', 'local_gamecreator'), 'wrap="virtual" rows="3" cols="50"');
 		$mform->setType('gamedescription', PARAM_TEXT);
 		$mform->addHelpButton('gamedescription', 'gamedescription', 'local_gamecreator');
 		$mform->addRule('gamedescription', get_string('required'), 'required', null);
+
+		if (isset($_SESSION['gamedescription'])) {
+			$mform->setDefault('gamedescription', $_SESSION['gamedescription']);
+		}
 
 		// Levels
 		$numbers = [];
@@ -30,12 +38,22 @@ class balloons_form1 extends moodleform {
 		}
 
 		$mform->addElement('select', 'numlevels', get_string('numlevels', 'local_gamecreator'), $numbers);
-		$mform->setDefault('numlevels', 4);
 		$mform->addRule('numlevels', get_string('required'), 'required', null);
 
+		if (isset($_SESSION['numlevels'])) {
+			$mform->setDefault('numlevels', $_SESSION['numlevels']);
+		} else {
+			$mform->setDefault('numlevels', 4);
+		}
+
 		$mform->addElement('select', 'numquestions', get_string('numquestions', 'local_gamecreator'), $numbers);
-		$mform->setDefault('numquestions', 3);
 		$mform->addRule('numquestions', get_string('required'), 'required', null);
+
+		if (isset($_SESSION['numquestions'])) {
+			$mform->setDefault('numquestions', $_SESSION['numquestions']);
+		} else {
+			$mform->setDefault('numquestions', 3);
+		}
 
 
 		// Create Game Button

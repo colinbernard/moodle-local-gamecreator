@@ -37,13 +37,12 @@ if ($arrangeform->is_cancelled()) {
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
 
+	// show the initial form
+	$initialform->display();
 
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);
-
-	// show the initial form
-	$initialform->display();
 
 } else if ($fromform = $arrangeform->get_data()) {
 

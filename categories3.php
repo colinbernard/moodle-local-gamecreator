@@ -2,8 +2,7 @@
 
 
 require_once(__DIR__ . '/../../config.php');
-require_once('game_forms/balloons_form1.php');
-require_once('game_forms/balloons_form2.php');
+require_once('game_forms/categories3_form.php');
 require_once('initial_form.php');
 
 
@@ -24,26 +23,25 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 $initialform = new initial_form("index.php");
-$balloonsform1 = new balloons_form1();
-$balloonsform2 = new balloons_form2();
+$categories3form = new categories3_form();
 
 
-if ($balloonsform1->is_cancelled()) {
+if ($categories3form->is_cancelled()) {
 
 	
 	// display short text description on initial form page
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
 
+	// show the initial form
+	$initialform->display();
 
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);
 
-	// show the initial form
-	$initialform->display();
+} else if ($fromform = $categories3form->get_data()) {
 
-} else if ($fromform = $balloonsform1->get_data()) {
 
 	$link = create_categories3_game($fromform->foldername, $fromform->answers, $categories3form);
 
@@ -53,9 +51,9 @@ if ($balloonsform1->is_cancelled()) {
 
 } else {
 
-	$info = format_text(get_string('balloonsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+	$info = format_text(get_string('categories3info', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($info);
-	$balloonsform1->display();
+	$categories3form->display();
 }
 
 echo $OUTPUT->footer();

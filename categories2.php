@@ -34,12 +34,12 @@ if ($categories2form->is_cancelled()) {
 	echo $OUTPUT->box($initialinfo);
 
 
+	// show the initial form
+	$initialform->display();
+
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);
-
-	// show the initial form
-	$initialform->display();
 
 } else if ($fromform = $categories2form->get_data()) {
 
