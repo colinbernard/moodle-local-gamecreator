@@ -11,7 +11,7 @@ require_once('initial_form.php');
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
 $pagetitle = $title;
-$url = new moodle_url("/local/gamecreator/balloons.php");
+$url = new moodle_url("/local/gamecreator/categories3.php");
 $PAGE->set_url($url);
 $PAGE->set_title($title);
 $PAGE->set_heading($title);
@@ -45,15 +45,10 @@ if ($balloonsform1->is_cancelled()) {
 
 } else if ($fromform = $balloonsform1->get_data()) {
 
-	$_SESSION['numlevels'] = $fromform->numlevels;
-	$_SESSION['numquestions'] = $fromform->numquestions;
-	$_SESSION['gametitle'] = $fromform->gametitle;
-	$_SESSION['gamedescription'] = $fromform->gamedescription;
+	$link = create_categories3_game($fromform->foldername, $fromform->answers, $categories3form);
 
-	$balloonsform2 = new balloons_form2("balloons2.php", array('numlevels'=>$fromform->numlevels, 'numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle, 'description'=>$fromform->gamedescription));
-	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
-	echo $OUTPUT->box($info);
-	$balloonsform2->display();
+	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
+	echo $success_output->render($renderable);
 
 
 } else {

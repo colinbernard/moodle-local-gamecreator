@@ -11,7 +11,7 @@ require_once('initial_form.php');
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
 $pagetitle = $title;
-$url = new moodle_url("/local/gamecreator/balloons.php");
+$url = new moodle_url("/local/gamecreator/spiderlove.php");
 $PAGE->set_url($url);
 $PAGE->set_title($title);
 $PAGE->set_heading($title);
@@ -23,7 +23,7 @@ $initial_output = $PAGE->get_renderer('local_gamecreator');
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
-$initialform = new initial_form("index.php");
+$initialform = new initial_form();
 $balloonsform1 = new balloons_form1();
 $balloonsform2 = new balloons_form2();
 
@@ -44,16 +44,11 @@ if ($balloonsform1->is_cancelled()) {
 	$initialform->display();
 
 } else if ($fromform = $balloonsform1->get_data()) {
+	
+	$link = create_spiderlove_game($fromform->foldername, $spiderloveform);
 
-	$_SESSION['numlevels'] = $fromform->numlevels;
-	$_SESSION['numquestions'] = $fromform->numquestions;
-	$_SESSION['gametitle'] = $fromform->gametitle;
-	$_SESSION['gamedescription'] = $fromform->gamedescription;
-
-	$balloonsform2 = new balloons_form2("balloons2.php", array('numlevels'=>$fromform->numlevels, 'numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle, 'description'=>$fromform->gamedescription));
-	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
-	echo $OUTPUT->box($info);
-	$balloonsform2->display();
+	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
+	echo $success_output->render($renderable);
 
 
 } else {

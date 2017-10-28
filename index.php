@@ -4,16 +4,11 @@
 require_once(__DIR__ . '/../../config.php');
 require_once('initial_form.php');
 require_once('game_forms/balloons_form1.php');
-require_once('game_forms/balloons_form2.php');
 require_once('game_forms/arrange_form.php');
 require_once('game_forms/categories2_form.php');
 require_once('game_forms/categories3_form.php');
 require_once('game_forms/spiderlove_form.php');
-require_once('generator/balloons.php');
-require_once('generator/arrange.php');
-require_once('generator/categories2.php');
-require_once('generator/categories3.php');
-require_once('generator/spiderlove.php');
+
 
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
@@ -33,47 +28,10 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 $initialform = new initial_form();
-$balloonsform1 = new balloons_form1();
-$balloonsform2 = new balloons_form2();
-$arrangeform = new arrange_form();
-$categories2form = new categories2_form();
-$categories3form = new categories3_form();
-$spiderloveform = new spiderlove_form();
 
-
-if ($fromform = $arrangeform->get_data()) {
-
-	$link = create_arrange_game($fromform->foldername, $arrangeform);
-
-	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
-	echo $success_output->render($renderable);
-
-} else if ($fromform = $categories2form->get_data()) {
-
-	$link = create_categories2_game($fromform->foldername, $fromform->answers, $categories2form);
-
-	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
-	echo $success_output->render($renderable);
-
-
-} else if ($fromform = $categories3form->get_data()) {
-
-	$link = create_categories3_game($fromform->foldername, $fromform->answers, $categories3form);
-
-	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
-	echo $success_output->render($renderable);
-
-} else if ($fromform = $spiderloveform->get_data()) {
-
-	$link = create_spiderlove_game($fromform->foldername, $spiderloveform);
-
-	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
-	echo $success_output->render($renderable);
-
-} else if ($fromform = $initialform->get_data()) {
+if ($fromform = $initialform->get_data()) {
 
 	$gametype = $fromform->gametype;
-	$balloonsform = null;
 	$info = null;
 
 	switch ($gametype) {
@@ -84,25 +42,25 @@ if ($fromform = $arrangeform->get_data()) {
 			$balloonsform1->display();
 			break;
 		case 1 :
-			$arrangeform = new arrange_form();
+			$arrangeform = new arrange_form("arrange.php");
 			$info = format_text(get_string('arrangeinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
 			$arrangeform->display();
 			break;
 		case 2 :
-			$categories2form = new categories2_form();
+			$categories2form = new categories2_form("categories2.php");
 			$info = format_text(get_string('categories2info', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
 			$categories2form->display();		
 			break;
 		case 3 :
-			$categories3form = new categories3_form();
+			$categories3form = new categories3_form("categories3.php");
 			$info = format_text(get_string('categories3info', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
 			$categories3form->display();		
 			break;
 		case 4 :
-			$spiderloveform = new spiderlove_form();
+			$spiderloveform = new spiderlove_form("spiderlove.php");
 			$info = format_text(get_string('spiderloveinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
 			$spiderloveform->display();		
@@ -116,12 +74,12 @@ if ($fromform = $arrangeform->get_data()) {
 	echo $OUTPUT->box($initialinfo);
 
 
+	// show the initial form
+	$initialform->display();
+
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);
-
-	// show the initial form
-	$initialform->display();
 	
 }
 

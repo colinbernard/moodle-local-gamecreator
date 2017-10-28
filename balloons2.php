@@ -8,7 +8,7 @@ require_once('generator/balloons.php');
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
 $pagetitle = $title;
-$url = new moodle_url("/local/gamecreator/index.php");
+$url = new moodle_url("/local/gamecreator/balloons2.php");
 $PAGE->set_url($url);
 $PAGE->set_title($title);
 $PAGE->set_heading($title);
