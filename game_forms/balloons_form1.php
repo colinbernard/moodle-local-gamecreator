@@ -78,11 +78,11 @@ class balloons_form1 extends moodleform {
 			$errors['gametitle'] = get_string('versionexists', 'local_gamecreator');
 		}
 
-		if (strlen($title) > 31) {
+		if (strlen($title) > 30) {
 			$errors['gametitle'] = get_string('gametitle_error', 'local_gamecreator');
 		}
 
-		if (strlen($description > 70)) {
+		if (strlen($description) > 165) {
 			$errors['gamedescription'] = get_string('gamedescription_error', 'local_gamecreator');
 		}
 

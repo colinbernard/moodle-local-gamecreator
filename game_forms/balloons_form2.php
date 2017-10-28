@@ -78,6 +78,14 @@ class balloons_form2 extends moodleform {
 					$errors['a_'.$i.$j] = get_string('missing', 'local_gamecreator');
 				}
 
+				if (strlen($data['q_'.$i.$j]) > 6) {
+					$errors['q_'.$i.$j] = get_string('toolong', 'local_gamecreator');
+				}
+
+				if (strlen($data['a_'.$i.$j]) > 6) {
+					$errors['a_'.$i.$j] = get_string('toolong', 'local_gamecreator');
+				}
+
 				for ($k = 0; $k < 4; $k++) {
 					if (empty($data['o_'.$i.$j.$k])) {
 						$errors['o_'.$i.$j.$k] = get_string('missing', 'local_gamecreator');
@@ -85,6 +93,10 @@ class balloons_form2 extends moodleform {
 
 					if ($data['o_'.$i.$j.$k] == $data['a_'.$i.$j]) {
 						$errors['o_'.$i.$j.$k] = get_string('answerinoptions', 'local_gamecreator');
+					}
+
+					if (strlen($data['o_'.$i.$j.$k]) > 6) {
+						$errors['o_'.$i.$j.$k] = get_string('toolong', 'local_gamecreator');
 					}
 
 					for ($l = 0; $l < 4; $l++) {

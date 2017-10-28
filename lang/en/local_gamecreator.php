@@ -36,6 +36,7 @@ $string['gamedescription_error'] = 'Description is too long!';
 $string['missing'] = 'Missing!';
 $string['answerinoptions'] = 'Do not include the answer as one of the options!';
 $string['duplicate'] = 'Duplicate options are not allowed!';
+$string['toolong'] = 'Too long! Please restrict to 6 characters or less.';
 
 // arrange
 $string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box. The images must be of type .jpg, and should be 200x100 pixels.';
