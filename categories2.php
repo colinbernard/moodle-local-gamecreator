@@ -2,8 +2,7 @@
 
 
 require_once(__DIR__ . '/../../config.php');
-require_once('game_forms/balloons_form1.php');
-require_once('game_forms/balloons_form2.php');
+require_once('game_forms/categories2_form.php');
 require_once('initial_form.php');
 
 
@@ -23,12 +22,11 @@ $initial_output = $PAGE->get_renderer('local_gamecreator');
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
-$initialform = new initial_form();
-$balloonsform1 = new balloons_form1();
-$balloonsform2 = new balloons_form2();
+$initialform = new initial_form("index.php");
+$categories2form = new categories2_form();
 
 
-if ($balloonsform1->is_cancelled()) {
+if ($categories2form->is_cancelled()) {
 
 	
 	// display short text description on initial form page
@@ -43,24 +41,20 @@ if ($balloonsform1->is_cancelled()) {
 	// show the initial form
 	$initialform->display();
 
-} else if ($fromform = $balloonsform1->get_data()) {
+} else if ($fromform = $categories2form->get_data()) {
 
-	$_SESSION['numlevels'] = $fromform->numlevels;
-	$_SESSION['numquestions'] = $fromform->numquestions;
-	$_SESSION['gametitle'] = $fromform->gametitle;
-	$_SESSION['gamedescription'] = $fromform->gamedescription;
 
-	$balloonsform2 = new balloons_form2("balloons2.php", array('numlevels'=>$fromform->numlevels, 'numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle, 'description'=>$fromform->gamedescription));
-	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
-	echo $OUTPUT->box($info);
-	$balloonsform2->display();
+	$link = create_categories2_game($fromform->foldername, $fromform->answers, $categories2form);
+
+	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
+	echo $success_output->render($renderable);
 
 
 } else {
 
-	$info = format_text(get_string('balloonsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+	$info = format_text(get_string('categories2info', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($info);
-	$balloonsform1->display();
+	$categories2form->display();
 }
 
 echo $OUTPUT->footer();
