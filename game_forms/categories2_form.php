@@ -44,8 +44,16 @@ class categories2_form extends moodleform {
 	}
 
 	public function validation($data, $files) {
-
+		global $CFG;
+		
 		$errors = parent::validation($data, $files);
+
+		$foldername = $data['foldername'];
+		$filename = $CFG->dirroot . '/LOR/games/potato_categories2/versions/' . $foldername;
+
+		if (file_exists($filename)) {
+			$errors['foldername'] = get_string('versionexists', 'local_gamecreator');
+		}
 
 		if (strlen((string)$data['answers']) != 5) {
 			$errors['answers'] = get_string('answers_error', 'local_gamecreator');

@@ -30,6 +30,18 @@ class arrange_form extends moodleform {
 	}
 
 	public function validation($data, $files) {
-		return array();
+		global $CFG;
+		
+		$errors = parent::validation($data, $files);
+
+		$foldername = $data['foldername'];
+		$filename = $CFG->dirroot . '/LOR/games/arrange/versions/' . $foldername;
+
+		if (file_exists($filename)) {
+			$errors['foldername'] = get_string('versionexists', 'local_gamecreator');
+		}
+
+
+		return $errors;
 	}
 }

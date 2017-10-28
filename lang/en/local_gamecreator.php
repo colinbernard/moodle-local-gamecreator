@@ -12,6 +12,7 @@ $string['gamedescription_help'] = 'This description will be displayed on the sta
 $string['creategame'] = 'Create Game';
 $string['initialinfo'] = 'This plugin allows developers to create their own versions of exisiting HTML5 games. Start by selecting a game type.';
 $string['foldername'] = 'Folder name';
+$string['versionexists'] = 'This game name already exists. Please choose a unique name.';
 
 
 // balloons

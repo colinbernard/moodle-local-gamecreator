@@ -64,11 +64,19 @@ class balloons_form1 extends moodleform {
 	}
 
 	public function validation($data, $files) {
+		global $CFG;
+
 
 		$errors = parent::validation($data, $files);
 
 		$title = $data['gametitle'];
 		$description = $data['gamedescription'];
+
+		$filename = $CFG->dirroot . '/LOR/games/balloons/versions/' . $title . ".json";
+
+		if (file_exists($filename)) {
+			$errors['gametitle'] = get_string('versionexists', 'local_gamecreator');
+		}
 
 		if (strlen($title) > 31) {
 			$errors['gametitle'] = get_string('gametitle_error', 'local_gamecreator');

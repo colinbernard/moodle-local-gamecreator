@@ -4,6 +4,8 @@
 require_once(__DIR__ . '/../../config.php');
 require_once('game_forms/categories3_form.php');
 require_once('initial_form.php');
+require_once('generator/categories3.php');
+
 
 
 
@@ -18,6 +20,8 @@ $PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('standard');
 
 $initial_output = $PAGE->get_renderer('local_gamecreator');
+$success_output = $PAGE->get_renderer('local_gamecreator');
+
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));

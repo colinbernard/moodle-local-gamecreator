@@ -1,65 +1,24 @@
 <?php
 
 
-require_once(__DIR__ . '/../../config.php');
-require_once('game_forms/categories2_form.php');
-require_once('initial_form.php');
-require_once('generator/categories2.php');
+function create_categories2_game($foldername, $answers, $form) {
+	global $CFG;
+
+	mkdir($CFG->dirroot . '/LOR/games/potato_categories2/versions/' . $foldername);
+
+	$answersfile = fopen($CFG->dirroot . '/LOR/games/potato_categories2/versions/' . $foldername . "/answers.txt", 'w') or die("Unable to create answers text file.");
+	fwrite($answersfile, $answers);
+
+	$form->save_file('category1', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/category1.png');
+	$form->save_file('category2', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/category2.png');
 
 
+	$form->save_file('question1', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/question1.png');
+	$form->save_file('question2', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/question2.png');
+	$form->save_file('question2', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/question3.png');
+	$form->save_file('question4', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/question4.png');
+	$form->save_file('question5', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/question5.png');
 
-// set up the page
-$title = get_string('pluginname', 'local_gamecreator');
-$pagetitle = $title;
-$url = new moodle_url("/local/gamecreator/categories2.php");
-$PAGE->set_url($url);
-$PAGE->set_title($title);
-$PAGE->set_heading($title);
-$PAGE->set_context(context_system::instance());
-$PAGE->set_pagelayout('standard');
-
-$initial_output = $PAGE->get_renderer('local_gamecreator');
-$success_output = $PAGE->get_renderer('local_gamecreator');
-
-
-echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
-
-$initialform = new initial_form("index.php");
-$categories2form = new categories2_form();
-
-
-
-if ($categories2form->is_cancelled()) {
-
-	
-	// display short text description on initial form page
-	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
-	echo $OUTPUT->box($initialinfo);
-
-
-	// show initial HTML
-	$renderable = new \local_gamecreator\output\initial_html();
-	echo $initial_output->render($renderable);
-
-	// show the initial form
-	$initialform->display();
-
-} else if ($fromform = $categories2form->get_data()) {
-
-	$link = create_categories2_game($fromform->foldername, $fromform->answers, $categories2form);
-
-	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
-	echo $success_output->render($renderable);
-
-
-} else {
-
-	$info = format_text(get_string('categories2info', 'local_gamecreator'), FORMAT_MARKDOWN);
-	echo $OUTPUT->box($info);
-	$categories2form->display();
+	$link = new moodle_url("/LOR/games/potato_categories2/potato_categories.php?title=" . rawurlencode($foldername));
+	return $link;
 }
-
-echo $OUTPUT->footer();
-
-?>
