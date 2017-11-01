@@ -12,5 +12,7 @@ function create_arrange_game($foldername, $arrangeform) {
 	$arrangeform->save_file('image4', $CFG->dirroot . '/LOR/games/arrange/versions/'.$foldername.'/4.jpg');
 
 	$link = new moodle_url("/LOR/games/arrange/arrange.php?title=" . rawurlencode($foldername));
+	$link = str_replace("http:", "https:", $link);
+
 	return $link;
 }

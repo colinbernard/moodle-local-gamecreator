@@ -20,5 +20,7 @@ function create_categories2_game($foldername, $answers, $form) {
 	$form->save_file('question5', $CFG->dirroot . '/LOR/games/potato_categories2/versions/'.$foldername.'/question5.png');
 
 	$link = new moodle_url("/LOR/games/potato_categories2/potato_categories.php?title=" . rawurlencode($foldername));
+	$link = str_replace("http:", "https:", $link);
+
 	return $link;
 }

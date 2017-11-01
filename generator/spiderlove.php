@@ -20,5 +20,8 @@ function create_spiderlove_game($foldername, $form) {
 
 
 	$link = new moodle_url("/LOR/games/spiderlove/spiders.php?title=" . rawurlencode($foldername));
+	$link = str_replace("http:", "https:", $link);
+
+
 	return $link;
 }
