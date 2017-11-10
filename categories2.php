@@ -32,7 +32,7 @@ $categories2form = new categories2_form();
 
 if ($categories2form->is_cancelled()) {
 
-	
+
 	// display short text description on initial form page
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
@@ -53,12 +53,17 @@ if ($categories2form->is_cancelled()) {
 	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
 	echo $success_output->render($renderable);
 
+	$info = format_text(get_string('categories2info', 'local_gamecreator'), FORMAT_MARKDOWN);
+	echo $OUTPUT->box($info);
+	$categories2form->display();
+	echo "</div>"; // please don't ask
 
 } else {
 
 	$info = format_text(get_string('categories2info', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($info);
 	$categories2form->display();
+
 }
 
 echo $OUTPUT->footer();
