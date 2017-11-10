@@ -1,11 +1,36 @@
+<script>
+  function showEdit() {
+    document.getElementById("results").style.display = "none";
+    document.getElementById("edit").style.display = "block";
+    document.getElementById("editBtn").disabled = true;
+    document.getElementById("gameBtn").disabled = false;
+
+  }
+
+  function showGame() {
+    document.getElementById("results").style.display = "block";
+    document.getElementById("edit").style.display = "none";
+    document.getElementById("gameBtn").disabled = true
+    document.getElementById("editBtn").disabled = false;
+
+  }
+
+</script>
+
 <a href="index.php"><button value="Back">Back to Start Screen</button></a>
-<p>Custom BCLN game created successfully! To include it in a course, copy the text below and paste it into the course page HTML.</p>
-<textarea rows="4" cols="140">
-<p><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
-</textarea>
+<button id="editBtn" onclick="showEdit()">Edit Game</button>
+<button id="gameBtn" onclick="showGame()" disabled>Show Game</button>
+
+<div id="results">
+  <p>Custom BCLN game created successfully! To include it in a course, copy the text below and paste it into the course page HTML.</p>
+  <textarea rows="4" cols="140">
+  <p><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
+  </textarea>
 
 
 
-<p>It is a good idea to test your game to make sure nothing went wrong, here is a preview:</p>
-<p><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
-
+  <p>It is a good idea to test your game to make sure nothing went wrong, here is a preview:</p>
+  <p><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
+</div>
+<div id="edit" style="display: none">
+  <h2>Edit Your Game</h2>

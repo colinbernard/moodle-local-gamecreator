@@ -41,6 +41,7 @@ if ($balloonsform2->is_cancelled()) {
 	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($info);
 	$balloonsform2->display();
+	echo "</div>"; // don't even ask
 
 } else {
 	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);

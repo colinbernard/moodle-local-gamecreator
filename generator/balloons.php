@@ -8,9 +8,9 @@ function create_balloons_game($data) {
 	$file = fopen("../../LOR/games/balloons/versions/" . $title . '.json', 'w');
 	fwrite($file, json_encode($data));
 	fclose($file);
-	
+
 	$link = new moodle_url("/LOR/games/balloons/balloons.php?title=" . rawurlencode($title));
-	$link = str_replace("http:", "https:", $link);
+	//$link = str_replace("http:", "https:", $link);
 
 	return $link;
 }
