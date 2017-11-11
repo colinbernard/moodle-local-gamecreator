@@ -32,7 +32,7 @@ $categories3form = new categories3_form();
 
 if ($categories3form->is_cancelled()) {
 
-	
+
 	// display short text description on initial form page
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
@@ -52,6 +52,10 @@ if ($categories3form->is_cancelled()) {
 	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
 	echo $success_output->render($renderable);
 
+	$info = format_text(get_string('categories3info', 'local_gamecreator'), FORMAT_MARKDOWN);
+	echo $OUTPUT->box($info);
+	$categories3form->display();
+	echo "</div>";
 
 } else {
 

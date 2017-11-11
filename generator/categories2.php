@@ -6,6 +6,7 @@ function create_categories2_game($foldername, $answers, $form) {
 
 	mkdir($CFG->dirroot . '/LOR/games/potato_categories2/versions/' . $foldername);
 
+
 	$answersfile = fopen($CFG->dirroot . '/LOR/games/potato_categories2/versions/' . $foldername . "/answers.txt", 'w') or die("Unable to create answers text file.");
 	fwrite($answersfile, $answers);
 

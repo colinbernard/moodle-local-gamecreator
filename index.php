@@ -51,19 +51,19 @@ if ($fromform = $initialform->get_data()) {
 			$categories2form = new categories2_form("categories2.php");
 			$info = format_text(get_string('categories2info', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
-			$categories2form->display();		
+			$categories2form->display();
 			break;
 		case 3 :
 			$categories3form = new categories3_form("categories3.php");
 			$info = format_text(get_string('categories3info', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
-			$categories3form->display();		
+			$categories3form->display();
 			break;
 		case 4 :
 			$spiderloveform = new spiderlove_form("spiderlove.php");
 			$info = format_text(get_string('spiderloveinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
-			$spiderloveform->display();		
+			$spiderloveform->display();
 			break;
 	}
 
@@ -80,7 +80,13 @@ if ($fromform = $initialform->get_data()) {
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);
-	
+
+	unset($_SESSION['gametitle']);
+	unset($_SESSION['gamedescription']);
+	unset($_SESSION['numlevels']);
+	unset($_SESSION['numquestions']);
+
+
 }
 
 

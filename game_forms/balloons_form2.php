@@ -33,7 +33,7 @@ class balloons_form2 extends moodleform {
 	        $mform->addHelpButton("balloonspeed", "speed", 'local_gamecreator');
 
 			for ($question = 0; $question <= $this->_customdata['numquestions']; $question++) {
-				
+
 				// question
 				$mform->addElement('text', "q_".$level.$question, get_string('question', 'local_gamecreator'));
 				$mform->setType("q_".$level.$question, PARAM_TEXT);
@@ -49,7 +49,7 @@ class balloons_form2 extends moodleform {
 				}
 			}
 		}
-
+		
 		$mform->addElement('hidden', 'numlevels', $this->_customdata['numlevels']);
 		$mform->setType('numlevels', PARAM_RAW);
 		$mform->addElement('hidden', 'numquestions', $this->_customdata['numquestions']);

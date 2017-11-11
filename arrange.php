@@ -32,7 +32,7 @@ $arrangeform = new arrange_form();
 
 if ($arrangeform->is_cancelled()) {
 
-	
+
 	// display short text description on initial form page
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
@@ -51,6 +51,10 @@ if ($arrangeform->is_cancelled()) {
 	$renderable = new \local_gamecreator\output\success_html($link, 600, 800);
 	echo $success_output->render($renderable);
 
+	$info = format_text(get_string('arrangeinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+	echo $OUTPUT->box($info);
+	$arrangeform->display();
+	echo "</div>";
 
 } else {
 
