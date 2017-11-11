@@ -21,20 +21,20 @@ class categories3_form extends moodleform {
 
 		$mform->addElement('header', 'categoriesheader', get_string('categoriesheader', 'local_gamecreator'));
 
-		$mform->addElement('filepicker', 'category1', get_string('categoryimage', 'local_gamecreator').' 1', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
-		$mform->addElement('filepicker', 'category2', get_string('categoryimage', 'local_gamecreator').' 2', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
-		$mform->addElement('filepicker', 'category3', get_string('categoryimage', 'local_gamecreator').' 3', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
+		$mform->addElement('filepicker', 'category1', get_string('categoryimage', 'local_gamecreator').' 1', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
+		$mform->addElement('filepicker', 'category2', get_string('categoryimage', 'local_gamecreator').' 2', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
+		$mform->addElement('filepicker', 'category3', get_string('categoryimage', 'local_gamecreator').' 3', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
 		$mform->addRule('category1', get_string('required'), 'required', null);
 		$mform->addRule('category2', get_string('required'), 'required', null);
 		$mform->addRule('category3', get_string('required'), 'required', null);
 
 		$mform->addElement('header', 'questionsheader', get_string('questionsheader', 'local_gamecreator'));
 
-		$mform->addElement('filepicker', 'question1', get_string('questionimage', 'local_gamecreator').' 1', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
-		$mform->addElement('filepicker', 'question2', get_string('questionimage', 'local_gamecreator').' 2', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
-		$mform->addElement('filepicker', 'question3', get_string('questionimage', 'local_gamecreator').' 3', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
-		$mform->addElement('filepicker', 'question4', get_string('questionimage', 'local_gamecreator').' 4', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
-		$mform->addElement('filepicker', 'question5', get_string('questionimage', 'local_gamecreator').' 5', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png')));
+		$mform->addElement('filepicker', 'question1', get_string('questionimage', 'local_gamecreator').' 1', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
+		$mform->addElement('filepicker', 'question2', get_string('questionimage', 'local_gamecreator').' 2', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
+		$mform->addElement('filepicker', 'question3', get_string('questionimage', 'local_gamecreator').' 3', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
+		$mform->addElement('filepicker', 'question4', get_string('questionimage', 'local_gamecreator').' 4', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
+		$mform->addElement('filepicker', 'question5', get_string('questionimage', 'local_gamecreator').' 5', null, array('maxbytes'=>1000000, 'accepted_types'=>array('.png', '.jpg')));
 		$mform->addRule('question1', get_string('required'), 'required', null);
 		$mform->addRule('question2', get_string('required'), 'required', null);
 		$mform->addRule('question3', get_string('required'), 'required', null);
@@ -47,7 +47,7 @@ class categories3_form extends moodleform {
 
 	public function validation($data, $files) {
 		global $CFG;
-		
+
 		$errors = parent::validation($data, $files);
 
 		$foldername = $data['foldername'];
