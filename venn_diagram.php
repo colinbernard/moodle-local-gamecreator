@@ -2,8 +2,8 @@
 
 
 require_once(__DIR__ . '/../../config.php');
-require_once('game_forms/balloons_form1.php');
-require_once('game_forms/balloons_form2.php');
+require_once('game_forms/venn_diagram_form1.php');
+require_once('game_forms/venn_diagram_form2.php');
 require_once('initial_form.php');
 
 
@@ -11,7 +11,7 @@ require_once('initial_form.php');
 // set up the page
 $title = get_string('pluginname', 'local_gamecreator');
 $pagetitle = $title;
-$url = new moodle_url("/local/gamecreator/balloons.php");
+$url = new moodle_url("/local/gamecreator/venn_diagram.php");
 $PAGE->set_url($url);
 $PAGE->set_title($title);
 $PAGE->set_heading($title);
@@ -24,11 +24,11 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 $initialform = new initial_form("index.php");
-$balloonsform1 = new balloons_form1();
-$balloonsform2 = new balloons_form2();
+$venndiagramform1 = new venn_diagram_form1();
+$venndiagramform2 = new venn_diagram_form2();
 
 
-if ($balloonsform1->is_cancelled()) {
+if ($venndiagramform1->is_cancelled()) {
 
 
 	// display short text description on initial form page
@@ -48,24 +48,24 @@ if ($balloonsform1->is_cancelled()) {
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);
 
-} else if ($fromform = $balloonsform1->get_data()) {
+} else if ($fromform = $venndiagramform1->get_data()) {
 
-	$_SESSION['numlevels'] = $fromform->numlevels;
+	$_SESSION['questions_per_level'] = $fromform->questions_per_level;
 	$_SESSION['numquestions'] = $fromform->numquestions;
 	$_SESSION['gametitle'] = $fromform->gametitle;
 	$_SESSION['gamedescription'] = $fromform->gamedescription;
 
-	$balloonsform2 = new balloons_form2("balloons2.php", array('numlevels'=>$fromform->numlevels, 'numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle, 'description'=>$fromform->gamedescription));
-	$info = format_text(get_string('balloonsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
+	$venndiagramform2 = new venn_diagram_form2("venn_diagram2.php", array('questions_per_level'=>$fromform->questions_per_level, 'numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle, 'description'=>$fromform->gamedescription));
+	$info = format_text(get_string('venndiagraminfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($info);
-	$balloonsform2->display();
+	$venndiagramform2->display();
 
 
 } else {
 
-	$info = format_text(get_string('balloonsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+	$info = format_text(get_string('venndiagraminfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($info);
-	$balloonsform1->display();
+	$venndiagramform1->display();
 }
 
 echo $OUTPUT->footer();
