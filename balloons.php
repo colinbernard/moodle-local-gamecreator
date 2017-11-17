@@ -30,13 +30,19 @@ $balloonsform2 = new balloons_form2();
 
 if ($balloonsform1->is_cancelled()) {
 
-	
+
 	// display short text description on initial form page
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
 
 	// show the initial form
 	$initialform->display();
+
+	unset($_SESSION['gametitle']);
+	unset($_SESSION['gamedescription']);
+	unset($_SESSION['numlevels']);
+	unset($_SESSION['numquestions']);
+	unset($_SESSION['questions_per_level']);
 
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();

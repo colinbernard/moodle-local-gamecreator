@@ -38,6 +38,12 @@ if ($venndiagramform1->is_cancelled()) {
 	// show the initial form
 	$initialform->display();
 
+	unset($_SESSION['gametitle']);
+	unset($_SESSION['gamedescription']);
+	unset($_SESSION['numlevels']);
+	unset($_SESSION['numquestions']);
+	unset($_SESSION['questions_per_level']);
+
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
 	echo $initial_output->render($renderable);

@@ -56,6 +56,21 @@ class venn_diagram_form2 extends moodleform {
 		$numquestions = $data['numquestions'];
 
 
+		// make sure all fields are completed
+		// can't use 'required' since number of fields varies.
+		for ($i = 0; $i <= $numquestions; $i++) {
+			if (empty($data['q'.$i])) {
+				$errors['q'.$i] = get_string('missing', 'local_gamecreator');
+			}
+			if (empty($data['o'.$i.'0'])) {
+				$errors['o'.$i.'0'] = get_string('missing', 'local_gamecreator');
+			}
+			if (empty($data['o'.$i.'1'])) {
+				$errors['o'.$i.'1'] = get_string('missing', 'local_gamecreator');
+			}
+		}
+
+
 
 
 
