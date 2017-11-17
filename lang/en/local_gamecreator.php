@@ -60,3 +60,18 @@ $string['leftimage'] = 'Left image';
 $string['rightimage'] = 'Right image';
 $string['leftheader'] = 'Left Images';
 $string['rightheader'] = 'Right Images';
+
+// venn diagram
+$string['venndiagraminfo'] = 'You have selected the game type "Venn Diagram". Input a unique version name (which will be visible to the user). Enter a short description for the game which will be shown on the start screen. Then select the number of questions and the number of questions per level.';
+$string['venndiagraminfo2'] = 'For each question you provide, also enter two options (one for each side of the Venn diagram) as well as selecting the correct answer to the question.';
+$string['right'] = 'Right';
+$string['left'] = 'Left';
+$string['neither'] = 'Neither';
+$string['both'] = 'Both';
+$string['questions_per_level'] = "Questions per level";
+$string['numquestions_venn'] = 'Number of questions';
+$string['gametitle_venn_help'] = "This title should be unique. It will be displayed in the URL and at the top of the browser window, but will not appear in the actual game anywhere.";
+$string['gametitle_venn'] = "Game title";
+$string['venn_answer'] = "Answer";
+
+// image labelling

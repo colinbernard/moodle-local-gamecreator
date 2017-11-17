@@ -8,6 +8,7 @@ require_once('game_forms/arrange_form.php');
 require_once('game_forms/categories2_form.php');
 require_once('game_forms/categories3_form.php');
 require_once('game_forms/spiderlove_form.php');
+require_once('game_forms/venn_diagram_form1.php');
 
 
 // set up the page
@@ -65,6 +66,18 @@ if ($fromform = $initialform->get_data()) {
 			echo $OUTPUT->box($info);
 			$spiderloveform->display();
 			break;
+		case 5 :
+			$venndiagramform = new venn_diagram_form1("venn_diagram.php");
+			$info = format_text(get_string('venndiagraminfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+			echo $OUTPUT->box($info);
+			$venndiagramform->display();
+			break;
+		case 6 :
+			$imagelabelsform = new image_labels_form("image_labels.php");
+			$info = format_text(get_string('imagelabelsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
+			echo $OUTPUT->box($info);
+			$imagelabelsform->display();
+			break;
 	}
 
 } else {
@@ -85,6 +98,7 @@ if ($fromform = $initialform->get_data()) {
 	unset($_SESSION['gamedescription']);
 	unset($_SESSION['numlevels']);
 	unset($_SESSION['numquestions']);
+	unset($_SESSION['questions_per_level']);
 
 
 }
