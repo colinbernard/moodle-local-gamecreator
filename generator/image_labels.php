@@ -1,0 +1,37 @@
+<?php
+
+
+function create_image_labels_game($data, $form) {
+	global $CFG;
+
+	$title = $data['title'];
+
+	// make a directory for the version
+	mkdir($CFG->dirroot . '/LOR/games/image_labels/versions/' . $title);
+
+	// save the image
+	$form->save_file('mainpic', $CFG->dirroot . '/LOR/games/image_labels/versions/'.$title.'/mainpic.jpg');
+
+	// create JSON file with question and answer data
+	$file = fopen("../../LOR/games/image_labels/versions/" . $title . '/questions.json', 'w');
+
+
+
+	$towrite = [];
+	for ($i = 0; $i <= $data['numquestions']; $i++) {
+		$towrite[] = ['question' => $data['q'.$i], 'answer' => digits_to_letters($data['a'.$i])];
+	}
+
+	fwrite($file, json_encode($towrite));
+	fclose($file);
+
+	// generate link to game
+	$link = new moodle_url("/LOR/games/image_labels/index.php?title=" . rawurlencode($title));
+	$link = str_replace("http:", "https:", $link);
+
+	return $link;
+}
+
+function digits_to_letters($input) {
+    return strtr($input, "123456", "ABCDEF");
+}

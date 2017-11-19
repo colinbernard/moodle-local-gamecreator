@@ -13,6 +13,7 @@ $string['creategame'] = 'Create Game';
 $string['initialinfo'] = 'This plugin allows developers to create their own versions of exisiting HTML5 games. Start by selecting a game type.';
 $string['foldername'] = 'Folder name';
 $string['versionexists'] = 'This game name already exists. Please choose a unique name.';
+$string['image'] = 'Image';
 
 
 // balloons
@@ -40,7 +41,6 @@ $string['toolong'] = 'Too long! Please restrict to 6 characters or less.';
 
 // arrange
 $string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box. The images must be of type .jpg or .png, and should be approximately 200x100 pixels.';
-$string['image'] = 'Image';
 
 // categories2 and 3
 $string['categories2info'] = 'You have selected the game type "Categories2", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category1, category2", you would input "12112". Select two images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be .png or .jpg. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
@@ -75,3 +75,6 @@ $string['gametitle_venn'] = "Game title";
 $string['venn_answer'] = "Answer";
 
 // image labelling
+$string['imagelabelsinfo'] = 'You have selected the game type "Image Labelling". Input a unique version name (which will not be visible to the user). Also enter the number of questions (labels) that your game will include. You will be able to upload a main picture which the user will be labelling on the next form.';
+$string['imagelabelsinfo2'] = 'Upload a picture (jpg or png) that is approximately 350x350 pixels. This picture should be labelled with letters A-F. You can find a picture on Google images and then add labels using Photoshop or a similar image editing software. You will also need to enter a term (question) and select the correct answer.';
+$string['image_labels_answer'] = 'Answer';
