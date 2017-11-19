@@ -9,6 +9,7 @@ require_once('game_forms/categories2_form.php');
 require_once('game_forms/categories3_form.php');
 require_once('game_forms/spiderlove_form.php');
 require_once('game_forms/venn_diagram_form1.php');
+require_once('game_forms/image_labels_form1.php');
 
 
 // set up the page
@@ -73,7 +74,7 @@ if ($fromform = $initialform->get_data()) {
 			$venndiagramform->display();
 			break;
 		case 6 :
-			$imagelabelsform = new image_labels_form("image_labels.php");
+			$imagelabelsform = new image_labels_form1("image_labels.php");
 			$info = format_text(get_string('imagelabelsinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 			echo $OUTPUT->box($info);
 			$imagelabelsform->display();
