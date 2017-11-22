@@ -40,7 +40,7 @@ $string['duplicate'] = 'Duplicate options are not allowed!';
 $string['toolong'] = 'Too long! Please restrict to 6 characters or less.';
 
 // arrange
-$string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the bottom, and the last image being the correct image to place in the top box. The images must be of type .jpg or .png, and should be approximately 200x100 pixels.';
+$string['arrangeinfo'] = 'You have selected the game type "Arrange", input a unique folder name (will not be visible to the user) and select four images in the correct order. The first image being the correct image to place at the top, and the last image being the correct image to place in the bottom box. The images must be of type .jpg or .png, and should be approximately 200x100 pixels.';
 
 // categories2 and 3
 $string['categories2info'] = 'You have selected the game type "Categories2", input a unique folder name (will not be visible to the user). Input the correct answers in the text box. For example if the answers are "category1, category2, category1, category1, category2", you would input "12112". Select two images for the categories (size 195x108), as well as 5 images for the questions (size 150x210). All images must be .png or .jpg. All images will be scaled to the listed sizes, so try to choose similar dimensions.';
