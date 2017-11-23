@@ -21,7 +21,7 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 $imagelabelsform1 = new image_labels_form1();
-$imagelabelsform2 = new image_labels_form2("image_labels2.php", array('numquestions'=>$_SESSION['numquestions'], 'title'=>$_SESSION['gametitle']));
+$imagelabelsform2 = new image_labels_form2("image_labels2.php", array('numquestions'=>$_SESSION['numquestions'], 'numbuttons'=>$_SESSION['numbuttons'], 'title'=>$_SESSION['gametitle']));
 
 
 if ($imagelabelsform2->is_cancelled()) {

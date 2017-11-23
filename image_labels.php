@@ -43,6 +43,7 @@ if ($imagelabelsform1->is_cancelled()) {
 	unset($_SESSION['numlevels']);
 	unset($_SESSION['numquestions']);
 	unset($_SESSION['questions_per_level']);
+	unset($_SESSION['numbuttons']);
 
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();
@@ -52,8 +53,9 @@ if ($imagelabelsform1->is_cancelled()) {
 
 	$_SESSION['numquestions'] = $fromform->numquestions;
 	$_SESSION['gametitle'] = $fromform->gametitle;
+	$_SESSION['numbuttons'] = $fromform->numbuttons;
 
-	$imagelabelsform2 = new image_labels_form2("image_labels2.php", array('numquestions'=>$fromform->numquestions, 'title'=>$fromform->gametitle));
+	$imagelabelsform2 = new image_labels_form2("image_labels2.php", array('numquestions'=>$fromform->numquestions, 'numbuttons'=>$fromform->numbuttons, 'title'=>$fromform->gametitle));
 	$info = format_text(get_string('imagelabelsinfo2', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($info);
 	$imagelabelsform2->display();

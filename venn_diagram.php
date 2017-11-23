@@ -43,6 +43,8 @@ if ($venndiagramform1->is_cancelled()) {
 	unset($_SESSION['numlevels']);
 	unset($_SESSION['numquestions']);
 	unset($_SESSION['questions_per_level']);
+	unset($_SESSION['numbuttons']);
+
 
 	// show initial HTML
 	$renderable = new \local_gamecreator\output\initial_html();

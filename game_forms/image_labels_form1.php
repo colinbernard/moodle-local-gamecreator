@@ -36,6 +36,15 @@ class image_labels_form1 extends moodleform {
 			$mform->setDefault('numquestions', 4);
 		}
 
+		// number of buttons/labels
+		$mform->addElement('select', 'numbuttons', get_string('numbuttons', 'local_gamecreator'), ["A-B", "A-C", "A-D", "A-E", "A-F", "A-G", "A-H"]);
+		$mform->addRule('numbuttons', get_string('required'), 'required', null);
+		if (isset($_SESSION['numbuttons'])) {
+			$mform->setDefault('numbuttons', $_SESSION['numbuttons']);
+		} else {
+			$mform->setDefault('numbuttons', 4);
+		}
+		$mform->addHelpButton('numbuttons', 'numbuttons', 'local_gamecreator');
 
 		// Next button
 		$this->add_action_buttons(true, get_string('next', 'local_gamecreator'));

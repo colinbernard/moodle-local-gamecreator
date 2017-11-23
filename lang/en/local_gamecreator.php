@@ -78,3 +78,5 @@ $string['venn_answer'] = "Answer";
 $string['imagelabelsinfo'] = 'You have selected the game type "Image Labelling". Input a unique version name (which will not be visible to the user). Also enter the number of questions (labels) that your game will include. You will be able to upload a main picture which the user will be labelling on the next form.';
 $string['imagelabelsinfo2'] = 'Upload a picture (jpg or png) that is approximately 350x350 pixels. This picture should be labelled with letters A-F. You can find a picture on Google images and then add labels using Photoshop or a similar image editing software. You will also need to enter a term (question) and select the correct answer.';
 $string['image_labels_answer'] = 'Answer';
+$string['numbuttons'] = "Number of Buttons (Labels)";
+$string['numbuttons_help'] = "This is the number of buttons at the bottom of the screen. If the image you will be using has A-F labels, you should choose to have A-F buttons at the bottom.";

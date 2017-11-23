@@ -100,7 +100,7 @@ if ($fromform = $initialform->get_data()) {
 	unset($_SESSION['numlevels']);
 	unset($_SESSION['numquestions']);
 	unset($_SESSION['questions_per_level']);
-
+	unset($_SESSION['numbuttons']);
 
 }
 

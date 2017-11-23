@@ -15,14 +15,17 @@ function create_image_labels_game($data, $form) {
 	// create JSON file with question and answer data
 	$file = fopen("../../LOR/games/image_labels/versions/" . $title . '/questions.json', 'w');
 
-
-
 	$towrite = [];
 	for ($i = 0; $i <= $data['numquestions']; $i++) {
 		$towrite[] = ['question' => $data['q'.$i], 'answer' => digits_to_letters($data['a'.$i])];
 	}
 
 	fwrite($file, json_encode($towrite));
+	fclose($file);
+
+	// create JSON file with number of labels data
+	$file = fopen("../../LOR/games/image_labels/versions/" . $title . '/data.json', 'w');
+	fwrite($file, json_encode($data['numbuttons'] + 2));
 	fclose($file);
 
 	// generate link to game

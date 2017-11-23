@@ -23,7 +23,9 @@ class image_labels_form2 extends moodleform {
 			$mform->setType('q'.$question, PARAM_RAW);
 
 			// answer
-			$mform->addElement('select', 'a'.$question, get_string('image_labels_answer', 'local_gamecreator') . " " . ($question + 1), ['A', 'B', 'C', 'D', 'E', 'F']);
+			$letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+			$letters = array_slice($letters, 0, $this->_customdata['numbuttons']+2);
+			$mform->addElement('select', 'a'.$question, get_string('image_labels_answer', 'local_gamecreator') . " " . ($question + 1), $letters);
 			$mform->setDefault('a'.$question, 'A');
 
 		}
@@ -32,6 +34,8 @@ class image_labels_form2 extends moodleform {
 		// hidden info from previous form
 		$mform->addElement('hidden', 'numquestions', $this->_customdata['numquestions']);
 		$mform->setType('numquestions', PARAM_RAW);
+		$mform->addElement('hidden', 'numbuttons', $this->_customdata['numbuttons']);
+		$mform->setType('numbuttons', PARAM_RAW);
 		$mform->addElement('hidden', 'title', $this->_customdata['title']);
 		$mform->setType('title', PARAM_RAW);
 
