@@ -36,5 +36,5 @@ function create_image_labels_game($data, $form) {
 }
 
 function digits_to_letters($input) {
-    return strtr($input, "012345", "ABCDEF");
+    return strtr($input, "01234567", "ABCDEFGH");
 }
