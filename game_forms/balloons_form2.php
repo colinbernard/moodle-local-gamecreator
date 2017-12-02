@@ -78,7 +78,7 @@ class balloons_form2 extends moodleform {
 					$errors['a_'.$i.$j] = get_string('missing', 'local_gamecreator');
 				}
 
-				if (strlen($data['q_'.$i.$j]) > 6) {
+				if (strlen($data['q_'.$i.$j]) > 15) {
 					$errors['q_'.$i.$j] = get_string('toolong', 'local_gamecreator');
 				}
 

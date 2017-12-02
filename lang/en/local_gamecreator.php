@@ -14,6 +14,12 @@ $string['initialinfo'] = 'This plugin allows developers to create their own vers
 $string['foldername'] = 'Folder name';
 $string['versionexists'] = 'This game name already exists. Please choose a unique name.';
 $string['image'] = 'Image';
+$string['title'] = 'Title';
+$string['author'] = 'Your name';
+$string['category'] = 'Category';
+$string['platform'] = 'Platform';
+$string['description'] = 'Description';
+$string['submit'] = 'Submit';
 
 
 // balloons
