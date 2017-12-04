@@ -15,7 +15,7 @@ class categories2_form extends moodleform {
 		$mform->setType('foldername', PARAM_TEXT);
 		$mform->addRule('foldername', get_string('required'), 'required', null);
 
-		$mform->addElement('text', 'answers', get_string('answer', 'local_gamecreator'));
+		$mform->addElement('text', 'answers', get_string('cat_answer', 'local_gamecreator'));
 		$mform->setType('answers', PARAM_INT);
 		$mform->addRule('answers', get_string('required'), 'required', null);
 
