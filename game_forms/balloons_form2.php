@@ -49,7 +49,7 @@ class balloons_form2 extends moodleform {
 				}
 			}
 		}
-		
+
 		$mform->addElement('hidden', 'numlevels', $this->_customdata['numlevels']);
 		$mform->setType('numlevels', PARAM_RAW);
 		$mform->addElement('hidden', 'numquestions', $this->_customdata['numquestions']);
@@ -71,10 +71,10 @@ class balloons_form2 extends moodleform {
 
 		for ($i = 0; $i <= $numlevels; $i++) {
 			for ($j = 0; $j <= $numquestions; $j++) {
-				if (empty($data['q_'.$i.$j])) {
+				if (!($data['q_'.$i.$j] == "0" || $data['q_'.$i.$j])) {
 					$errors['q_'.$i.$j] = get_string('missing', 'local_gamecreator');
 				}
-				if (empty($data['a_'.$i.$j])) {
+				if (!($data['a_'.$i.$j] == "0" || $data['a_'.$i.$j])) {
 					$errors['a_'.$i.$j] = get_string('missing', 'local_gamecreator');
 				}
 
@@ -87,7 +87,7 @@ class balloons_form2 extends moodleform {
 				}
 
 				for ($k = 0; $k < 4; $k++) {
-					if (empty($data['o_'.$i.$j.$k])) {
+					if (!($data['o_'.$i.$j.$k] == "0" || $data['o_'.$i.$j.$k])) {
 						$errors['o_'.$i.$j.$k] = get_string('missing', 'local_gamecreator');
 					}
 
