@@ -1,9 +1,12 @@
 <?php
 
+namespace local_gamecreator\game_forms;
 
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
+
+use moodleform;
 
 class arrange_form extends moodleform {
 	protected function definition() {

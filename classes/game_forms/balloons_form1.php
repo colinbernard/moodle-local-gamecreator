@@ -1,11 +1,14 @@
 <?php
 
+namespace local_gamecreator\game_forms;
 
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
 
-class local_gamecreator_balloons_form1 extends moodleform {
+use moodleform;
+
+class balloons_form1 extends moodleform {
 	protected function definition() {
 		global $CFG;
 

@@ -5,7 +5,7 @@ class local_gamecreator_game_handler {
   private static $current_game = null;
 
   public static function set_current_game($index) {
-    self::$current_game = local_gamecreator_game_handler::get_all_games()[$index];
+    self::$current_game = self::get_all_games()[$index];
   }
 
   public static function get_current_game() {
@@ -25,7 +25,7 @@ class local_gamecreator_game_handler {
 
   public static function get_all_game_names() {
   	$names = [];
-  	foreach (local_gamecreator_game_handler::get_all_games() as $game) {
+  	foreach (self::get_all_games() as $game) {
   		$names[] = $game->name;
   	}
 
@@ -33,7 +33,7 @@ class local_gamecreator_game_handler {
   }
 
   public static function get_game_from_index($index) {
-  	return local_gamecreator_game_handler::get_all_games()[$index];
+  	return self::get_all_games()[$index];
   }
 
 }

@@ -1,9 +1,13 @@
 <?php
+<?php
 
+namespace local_gamecreator\game_forms;
 
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
+
+use moodleform;
 
 class balloons_form2 extends moodleform {
 	protected function definition() {
@@ -49,7 +53,7 @@ class balloons_form2 extends moodleform {
 				}
 			}
 		}
-		
+
 		$mform->addElement('hidden', 'numlevels', $this->_customdata['numlevels']);
 		$mform->setType('numlevels', PARAM_RAW);
 		$mform->addElement('hidden', 'numquestions', $this->_customdata['numquestions']);
