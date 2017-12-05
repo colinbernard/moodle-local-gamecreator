@@ -4,8 +4,6 @@
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
-require_once('classes/game_handler.php');
-include(__DIR__.'/locallib.php');
 
 class initial_form extends moodleform {
 	protected function definition() {

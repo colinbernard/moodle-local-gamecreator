@@ -18,7 +18,6 @@ $PAGE->set_pagelayout('standard');
 
 $initial_output = $PAGE->get_renderer('local_gamecreator');
 
-
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
@@ -89,6 +88,7 @@ if (is_null(local_gamecreator_game_handler::get_current_game())) {
 function show_initial_form() {
 	global $OUTPUT;
 	global $initial_form;
+	global $initial_output;
 
 	unset($_SESSION['gametitle']);
 	unset($_SESSION['gamedescription']);
@@ -102,6 +102,10 @@ function show_initial_form() {
 
 	// show the initial form
 	$initial_form->display();
+
+	// show initial HTML
+	$renderable = new \local_gamecreator\output\initial_html();
+	echo $initial_output->render($renderable);
 }
 
 

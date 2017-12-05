@@ -1,7 +1,5 @@
 <?php
 
-require_once('game.php');
-
 class local_gamecreator_game_handler {
 
   private static $current_game = null;

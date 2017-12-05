@@ -5,7 +5,7 @@ defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
 
-class balloons_form1 extends moodleform {
+class local_gamecreator_balloons_form1 extends moodleform {
 	protected function definition() {
 		global $CFG;
 
@@ -58,7 +58,7 @@ class balloons_form1 extends moodleform {
 
 		// Create Game Button
 		$this->add_action_buttons(true, get_string('next', 'local_gamecreator'));
-		
+
 
 
 	}

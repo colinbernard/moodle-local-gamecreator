@@ -1,5 +1,4 @@
 <?php
-require_once("game_forms/balloons_form1.php");
 
 class local_gamecreator_game {
   var $name;
@@ -27,7 +26,7 @@ class local_gamecreator_game {
   }
 
   function display_first_form() {
-    $class = $this->game_forms[0];
+    $class = 'local_gamecreator_' . $this->game_forms[0];
     $form = new $class();
     $form->display();
   }
