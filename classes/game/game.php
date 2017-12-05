@@ -14,7 +14,7 @@ class game {
 
   var $form_index = 0;
 
-  function __construct($name, $info, $game_forms, $generator, $width, $height, $requires_POST_data = false) {
+  public function __construct($name, $info, $game_forms, $generator, $width, $height, $requires_POST_data = false) {
     $this->name = $name;
     $this->info = $info;
     $this->game_forms = $game_forms;
@@ -24,33 +24,44 @@ class game {
     $this->requires_POST_data = $requires_POST_data;
   }
 
-  function generate() {
+  public function generate() {
     call_user_func('/../generator/' . $generator);
   }
 
-  function display_first_form() {
-    $class =  "\\local_gamecreator\\game\\forms\\".$this->game_forms[0];
-    $form = new $class();
-    $form->display();
+  public function display_first_form() {
+    $this->init_game_form(0)->display();
   }
 
-  function display_next_form() {
-    if ($form_index < count($game_forms) - 1) {
-      $form_index++;
-      $game_forms[$form_index]->display(); // show the form
+  public function display_next_form($custom_data = null) {
+    if ($this->form_index < count($this->game_forms) - 1) {
+      $this->form_index++;
+      $this->init_game_form($this->form_index, $custom_data)->display(); // show the form
       return true;
     }
     return false;
   }
 
-  function display_previous_form() {
-    if ($form_index - 1 >= 0) {
-      $form_index--;
-      $game_forms[$form_index]->display();
+  public function display_previous_form() {
+    if ($this->form_index - 1 >= 0) {
+      $this->form_index--;
+      $this->init_game_form($this->form_index)->display(); // show the form
       return true;
     } else {
       return false;
     }
+  }
+
+  public function get_current_form() {
+    return $this->init_game_form($this->form_index);
+  }
+
+  public function get_current_info() {
+    return $this->info[$this->form_index];
+  }
+
+  private function init_game_form($index, $custom_data = null) {
+    $class =  "\\local_gamecreator\\game\\forms\\".$this->game_forms[$index];
+    return new $class(null, $custom_data);
   }
 
 }

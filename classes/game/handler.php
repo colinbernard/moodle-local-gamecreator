@@ -4,18 +4,22 @@ namespace local_gamecreator\game;
 
 class handler {
 
-  private static $current_game = null;
-
   public static function set_current_game($index) {
-    self::$current_game = self::get_all_games()[$index];
+    global $SESSION;
+    $SESSION->current_game = self::get_all_games()[$index];
   }
 
   public static function get_current_game() {
-    return self::$current_game;
+    global $SESSION;
+    if (isset($SESSION->current_game)) {
+      return $SESSION->current_game;
+    }
+    return null;
   }
 
   public static function reset_current_game() {
-    self::$current_game = null;
+    global $SESSION;
+    unset($SESSION->current_game);
   }
 
   public static function get_all_games() {

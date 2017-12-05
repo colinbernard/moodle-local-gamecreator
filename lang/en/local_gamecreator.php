@@ -23,7 +23,7 @@ $string['submit'] = 'Submit';
 
 
 // balloons
-$string['balloonsinfo'] = 'You have selected the game type "Balloons", fill out the following information to continue creating your own version of the game. View the help buttons if you are unclear on how to fill out the form.';
+$string['balloonsinfo1'] = 'You have selected the game type "Balloons", fill out the following information to continue creating your own version of the game. View the help buttons if you are unclear on how to fill out the form.';
 $string['balloonsinfo2'] = 'Enter question data for your Balloons game. Do NOT include the answer as one of the options. The options MUST be different than the supplied answer. View the help buttons if you are unclear on how to fill out the form.';
 $string['numlevels'] = 'Number of levels';
 $string['numquestions'] = 'Number of questions in each level';

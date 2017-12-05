@@ -1,5 +1,4 @@
 <?php
-<?php
 
 namespace local_gamecreator\game\forms;
 
@@ -16,7 +15,7 @@ class balloons_form2 extends moodleform {
 		$mform = $this->_form;
 
 
-		for ($level = 0; $level <= $this->_customdata['numlevels']; $level++) {
+		for ($level = 0; $level <= $this->_customdata->numlevels; $level++) {
 
 			// header
 			$mform->addElement('header', "levelheader$level", get_string('level', 'local_gamecreator')." ".($level+1));
@@ -36,7 +35,7 @@ class balloons_form2 extends moodleform {
 	        $mform->setDefault("levelspeed$level", 0);
 	        $mform->addHelpButton("balloonspeed", "speed", 'local_gamecreator');
 
-			for ($question = 0; $question <= $this->_customdata['numquestions']; $question++) {
+			for ($question = 0; $question <= $this->_customdata->numquestions; $question++) {
 
 				// question
 				$mform->addElement('text', "q_".$level.$question, get_string('question', 'local_gamecreator'));
@@ -54,13 +53,13 @@ class balloons_form2 extends moodleform {
 			}
 		}
 
-		$mform->addElement('hidden', 'numlevels', $this->_customdata['numlevels']);
+		$mform->addElement('hidden', 'numlevels', $this->_customdata->numlevels);
 		$mform->setType('numlevels', PARAM_RAW);
-		$mform->addElement('hidden', 'numquestions', $this->_customdata['numquestions']);
+		$mform->addElement('hidden', 'numquestions', $this->_customdata->numquestions);
 		$mform->setType('numquestions', PARAM_RAW);
-		$mform->addElement('hidden', 'title', $this->_customdata['title']);
+		$mform->addElement('hidden', 'title', $this->_customdata->gametitle);
 		$mform->setType('title', PARAM_RAW);
-		$mform->addElement('hidden', 'description', $this->_customdata['description']);
+		$mform->addElement('hidden', 'description', $this->_customdata->gamedescription);
 		$mform->setType('description', PARAM_RAW);
 		$this->add_action_buttons(true, get_string('creategame', 'local_gamecreator'));
 
