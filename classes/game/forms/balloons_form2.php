@@ -1,7 +1,7 @@
 <?php
 <?php
 
-namespace local_gamecreator\game_forms;
+namespace local_gamecreator\game\forms;
 
 defined('MOODLE_INTERNAL') || die;
 

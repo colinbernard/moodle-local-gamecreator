@@ -1,6 +1,9 @@
 <?php
 
-class local_gamecreator_game {
+namespace local_gamecreator\game;
+
+
+class game {
   var $name;
   var $info;
   var $game_forms;
@@ -26,7 +29,7 @@ class local_gamecreator_game {
   }
 
   function display_first_form() {
-    $class =  "\\local_gamecreator\\game_forms\\".$this->game_forms[0];
+    $class =  "\\local_gamecreator\\game\\forms\\".$this->game_forms[0];
     $form = new $class();
     $form->display();
   }

@@ -11,7 +11,7 @@ class initial_form extends moodleform {
 
 		$initialform = $this->_form;
 
-		$initialform->addElement('select', 'gametype', get_string('gametype_select', 'local_gamecreator'), local_gamecreator_game_handler::get_all_game_names());
+		$initialform->addElement('select', 'gametype', get_string('gametype_select', 'local_gamecreator'), local_gamecreator\game\handler::get_all_game_names());
 
 		$this->add_action_buttons(false, get_string('next', 'local_gamecreator'));
 	}

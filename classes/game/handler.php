@@ -1,6 +1,8 @@
 <?php
 
-class local_gamecreator_game_handler {
+namespace local_gamecreator\game;
+
+class handler {
 
   private static $current_game = null;
 
@@ -18,8 +20,8 @@ class local_gamecreator_game_handler {
 
   public static function get_all_games() {
   	return array(
-      new local_gamecreator_game("Balloons", array("balloonsinfo1", "balloonsinfo2"), array("balloons_form1", "balloons_form2"), "balloons.php", 920, 720, true),
-      new local_gamecreator_game("Arrange", array("arrangeinfo"), array("arrange_form"), "arrange.php", 600, 800)
+      new game("Balloons", array("balloonsinfo1", "balloonsinfo2"), array("balloons_form1", "balloons_form2"), "balloons.php", 920, 720, true),
+      new game("Arrange", array("arrangeinfo"), array("arrange_form"), "arrange.php", 600, 800)
     );
   }
 

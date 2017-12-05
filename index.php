@@ -1,5 +1,6 @@
 <?php
 
+use \local_gamecreator\game\handler;
 
 require_once(__DIR__ . '/../../config.php');
 require_once('initial_form.php');
@@ -23,15 +24,15 @@ echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 $initial_form = new initial_form();
 
-if (is_null(local_gamecreator_game_handler::get_current_game())) {
+if (is_null(handler::get_current_game())) {
 
 	if ($fromform = $initial_form->get_data()) {
 
 		// set the current game
-		local_gamecreator_game_handler::set_current_game($fromform->gametype);
+		handler::set_current_game($fromform->gametype);
 
 		// then display the form for the current game
-		$game_form = local_gamecreator_game_handler::get_current_game()->display_first_form();
+		$game_form = handler::get_current_game()->display_first_form();
 
 	} else {
 		show_initial_form();
@@ -47,7 +48,7 @@ if (is_null(local_gamecreator_game_handler::get_current_game())) {
 	  } else { // else show the initial form
 
 			// reset the current game
-			local_gamecreator_game_handler::reset_current_game();
+			handler::reset_current_game();
 			show_initial_form();
 
 	  }
