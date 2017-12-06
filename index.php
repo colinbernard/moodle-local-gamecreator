@@ -25,8 +25,8 @@ echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 $initial_form = new initial_form();
 
-// check is there is no game selected
-if (is_null(handler::get_current_game())) {
+// check is there is no game selected or if start screen is desired.
+if (is_null(handler::get_current_game()) || isset($_GET['start'])) {
 
 	// check if the initial form has been submitted
 	if ($fromform = $initial_form->get_data()) {
@@ -105,6 +105,7 @@ function show_initial_form() {
 	global $initial_form;
 	global $initial_output;
 
+	handler::reset_current_game();
 	handler::clear_custom_data();
 
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
