@@ -18,6 +18,7 @@ $PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('standard');
 
 $initial_output = $PAGE->get_renderer('local_gamecreator');
+$success_output = $PAGE->get_renderer('local_gamecreator');
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
@@ -44,7 +45,8 @@ if (is_null(handler::get_current_game())) {
 } else {
 
 	$game = handler::get_current_game();
-	$game_form = $game->get_current_form();
+	$game_form = $game->get_current_form(handler::get_custom_data()); // use custom data if this is second form
+
 
 	// the game form was cancelled
 	if ($game_form->is_cancelled()) {
@@ -65,7 +67,8 @@ if (is_null(handler::get_current_game())) {
 
 	  // if there is another form then show that form and send it custom data
 	  if ($game->display_next_form($fromform)) {
-
+			// store session data
+			handler::set_custom_data($fromform);
 		// else generate the game
 	  } else {
 
@@ -101,13 +104,6 @@ function show_initial_form() {
 	global $OUTPUT;
 	global $initial_form;
 	global $initial_output;
-
-	unset($_SESSION['gametitle']);
-	unset($_SESSION['gamedescription']);
-	unset($_SESSION['numlevels']);
-	unset($_SESSION['numquestions']);
-	unset($_SESSION['questions_per_level']);
-	unset($_SESSION['numbuttons']);
 
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);

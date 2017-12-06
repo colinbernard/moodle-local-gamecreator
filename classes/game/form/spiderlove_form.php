@@ -1,6 +1,6 @@
 <?php
 
-namespace local_gamecreator\game\forms;
+namespace local_gamecreator\game\form;
 
 defined('MOODLE_INTERNAL') || die;
 

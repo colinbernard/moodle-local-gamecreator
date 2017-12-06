@@ -1,6 +1,6 @@
 <?php
 
-namespace local_gamecreator\game\forms;
+namespace local_gamecreator\game\form;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -13,7 +13,6 @@ class balloons_form2 extends moodleform {
 		global $CFG;
 
 		$mform = $this->_form;
-
 
 		for ($level = 0; $level <= $this->_customdata->numlevels; $level++) {
 
