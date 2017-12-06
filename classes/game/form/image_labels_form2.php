@@ -19,7 +19,7 @@ class image_labels_form2 extends moodleform {
 
 
 		// for each question
-		for ($question = 0; $question <= $this->_customdata['numquestions']; $question++) {
+		for ($question = 0; $question <= $this->_customdata->numquestions; $question++) {
 
 			// question
 			$mform->addElement('text', 'q'.$question, get_string('question', 'local_gamecreator')." ".($question + 1));
@@ -27,7 +27,7 @@ class image_labels_form2 extends moodleform {
 
 			// answer
 			$letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-			$letters = array_slice($letters, 0, $this->_customdata['numbuttons']+2);
+			$letters = array_slice($letters, 0, $this->_customdata->numbuttons+2);
 			$mform->addElement('select', 'a'.$question, get_string('image_labels_answer', 'local_gamecreator') . " " . ($question + 1), $letters);
 			$mform->setDefault('a'.$question, 'A');
 
@@ -35,11 +35,11 @@ class image_labels_form2 extends moodleform {
 
 
 		// hidden info from previous form
-		$mform->addElement('hidden', 'numquestions', $this->_customdata['numquestions']);
+		$mform->addElement('hidden', 'numquestions', $this->_customdata->numquestions);
 		$mform->setType('numquestions', PARAM_RAW);
-		$mform->addElement('hidden', 'numbuttons', $this->_customdata['numbuttons']);
+		$mform->addElement('hidden', 'numbuttons', $this->_customdata->numbuttons);
 		$mform->setType('numbuttons', PARAM_RAW);
-		$mform->addElement('hidden', 'title', $this->_customdata['title']);
+		$mform->addElement('hidden', 'title', $this->_customdata->gametitle);
 		$mform->setType('title', PARAM_RAW);
 
 		$this->add_action_buttons(true, get_string('creategame', 'local_gamecreator'));

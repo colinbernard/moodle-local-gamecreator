@@ -105,6 +105,8 @@ function show_initial_form() {
 	global $initial_form;
 	global $initial_output;
 
+	handler::clear_custom_data();
+
 	$initialinfo = format_text(get_string('initialinfo', 'local_gamecreator'), FORMAT_MARKDOWN);
 	echo $OUTPUT->box($initialinfo);
 

@@ -33,7 +33,7 @@ class handler {
       new game("Arrange", array("arrangeinfo"), array("arrange_form"), "arrange", 600, 800),
       new game("Categories2", array("categories2info"), array("categories2_form"), "categories2", 600, 800),
       new game("Categories3", array("categories3info"), array("categories3_form"), "categories3", 600, 800),
-      new game("Image Labelling", array("imagelabelsinfo", "imagelabelsinfo2"), array("image_labels_form"), "image_labels", 700, 900),
+      new game("Image Labelling", array("imagelabelsinfo", "imagelabelsinfo2"), array("image_labels_form1", "image_labels_form2"), "image_labels", 560, 610),
       new game("Spider Love", array("spiderloveinfo"), array("spiderlove_form"), "spiderlove", 600, 800),
       new game("Venn Diagram", array("venndiagraminfo1", "venndiagraminfo2"), array("venn_diagram_form1", "venn_diagram_form2"), "venn_diagram", 920, 720)
     );
