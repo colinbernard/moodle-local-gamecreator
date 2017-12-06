@@ -10,7 +10,7 @@ class venn_diagram {
 	public static function generate($data, $game_form = null) {
 		global $CFG;
 
-		$title = $data['title'];
+		$title = $data->title;
 
 		$file = fopen("../../LOR/games/venn_diagram/versions/" . $title . '.json', 'w');
 		fwrite($file, json_encode($data));
