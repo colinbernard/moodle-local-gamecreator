@@ -9,7 +9,6 @@ use moodle_url;
 class balloons {
 	public static function generate($data, $game_form = null) {
 
-		$data = $data[0];
 		$title = $data['title'];
 
 		$file = fopen("../../LOR/games/balloons/versions/" . $title . '.json', 'w');

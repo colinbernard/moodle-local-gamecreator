@@ -4,7 +4,7 @@ namespace local_gamecreator\game;
 
 
 class game {
-  
+
   var $name;
   var $info;
   var $game_forms;
@@ -25,8 +25,8 @@ class game {
     $this->requires_POST_data = $requires_POST_data;
   }
 
-  public function generate($data, $game_form = null) {
-    return call_user_func('\\' . __NAMESPACE__ . "\\generator\\" . $this->generator . '::generate', array($data, $game_form));
+  public function generate($data, $game_form) {
+    return call_user_func_array('\\' . __NAMESPACE__ . "\\generator\\" . $this->generator . '::generate', array($data, &$game_form));
   }
 
   public function display_first_form() {
