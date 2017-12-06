@@ -1,5 +1,6 @@
 <?php
 
+
 function local_gamecreator_add_to_db($data) {
 	global $DB;
 
