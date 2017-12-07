@@ -4,7 +4,6 @@
     document.getElementById("edit").style.display = "block";
     document.getElementById("editBtn").disabled = true;
     document.getElementById("gameBtn").disabled = false;
-
   }
 
   function showGame() {
@@ -12,14 +11,24 @@
     document.getElementById("edit").style.display = "none";
     document.getElementById("gameBtn").disabled = true
     document.getElementById("editBtn").disabled = false;
-
   }
 
+  function showGamesPage() {
+    document.getElementById("results").style.display = "none";
+    document.getElementById("edit").style.display = "none";
+    document.getElementById("gameBtn").disabled = false;
+    document.getElementById("editBtn").disabled = false;
+  }
+
+
 </script>
+
+<link rel="stylesheet" href="style/local_gamecreator.css">
 
 <a href="index.php?start=1"><button value="Back">Back to Start Screen</button></a>
 <button id="editBtn" onclick="showEdit()">Edit Game</button>
 <button id="gameBtn" onclick="showGame()" disabled>Show Game</button>
+
 
 <div id="results">
   <p>Custom BCLN game created successfully! To include it in a course, copy the text below and paste it into the course page HTML.</p>
@@ -40,5 +49,6 @@
   <p>It is a good idea to test your game to make sure nothing went wrong, here is a preview:</p>
   <p><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
 </div>
+
 <div id="edit" style="display: none">
   <h2>Edit Your Game</h2>

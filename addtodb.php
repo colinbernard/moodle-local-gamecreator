@@ -26,7 +26,8 @@ $addtodb_form = new addtodb_form(null, array('width' => $_POST['width'], 'height
 
 if ($addtodb_form->is_cancelled()) {
 
-  redirect($_SERVER['HTTP_REFERER']);
+  // go back to generated game page
+  ?><script>window.history.go(-2);</script><?php
 
 } else if ($fromform = $addtodb_form->get_data()) {
 

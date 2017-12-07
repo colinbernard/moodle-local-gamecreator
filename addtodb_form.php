@@ -1,6 +1,5 @@
 <?php
 
-
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
@@ -57,6 +56,7 @@ class addtodb_form extends moodleform {
 		$this->add_action_buttons(true, get_string('submit', 'local_gamecreator'));
 	}
 
+	// TODO
 	public function validation($data, $files) {
 		global $CFG;
 
