@@ -31,6 +31,9 @@ if ($addtodb_form->is_cancelled()) {
 
 } else if ($fromform = $addtodb_form->get_data()) {
 
+  \local_gamecreator\game\handler::clear_custom_data();
+  \local_gamecreator\game\handler::reset_current_game();
+
   $id = local_gamecreator_add_to_db($fromform);
   redirect($CFG->wwwroot .'/local/gamespage/index.php');
 
