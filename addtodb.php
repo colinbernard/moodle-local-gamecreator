@@ -14,13 +14,16 @@ $PAGE->set_url($CFG->wwwroot.'/local/gamecreator/addtodb');
 
 
 
-
 echo $OUTPUT->header();
 ?>
 
 <h2>Add your game to the BCLN Games Page</h2>
 
 <?php
+
+$context = \context_system::instance();
+require_capability('local/gamecreator:viewplugin', $context);
+
 
 $addtodb_form = new addtodb_form(null, array('width' => $_POST['width'], 'height' => $_POST['height'], 'link' => $_POST['link']));
 

@@ -1,4 +1,7 @@
 <?php
+// access
+$string['gamecreator:viewplugin'] = "Use the Game Creator plugin.";
+
 
 // general
 $string['pluginname'] = 'BCLN Game Creator';

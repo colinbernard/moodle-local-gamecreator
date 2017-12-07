@@ -23,6 +23,10 @@ $success_output = $PAGE->get_renderer('local_gamecreator');
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
+
+$context = context_user::instance($USER->id);
+require_capability('local/gamecreator:viewplugin', $context);
+
 $initial_form = new initial_form();
 
 
