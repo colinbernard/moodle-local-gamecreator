@@ -5,7 +5,7 @@ defined('MOODLE_INTERNAL') || die();
 $capabilities = array(
   'local/gamecreator:viewplugin' => array(
     'captype'      => 'write',
-    'contextlevel' => CONTEXT_USER,
+    'contextlevel' => CONTEXT_SYSTEM,
     'archetypes' => array(
         'guest'          => CAP_PREVENT,
         'student'        => CAP_PREVENT,

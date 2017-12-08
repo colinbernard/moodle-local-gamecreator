@@ -11,10 +11,11 @@ require_once('locallib.php');
 $title = get_string('pluginname', 'local_gamecreator');
 $pagetitle = $title;
 $url = new moodle_url("/local/gamecreator/index.php");
+$context = context_system::instance();
+$PAGE->set_context($context);
 $PAGE->set_url($url);
 $PAGE->set_title($title);
 $PAGE->set_heading($title);
-$PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('standard');
 
 $initial_output = $PAGE->get_renderer('local_gamecreator');
@@ -24,7 +25,8 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 
-$context = context_user::instance($USER->id);
+var_dump(get_users_by_capability($context, 'local/gamecreator:viewplugin'));
+
 require_capability('local/gamecreator:viewplugin', $context);
 
 $initial_form = new initial_form();
