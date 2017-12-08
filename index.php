@@ -25,7 +25,8 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('heading', 'local_gamecreator'));
 
 
-var_dump(get_users_by_capability($context, 'local/gamecreator:viewplugin'));
+//var_dump(get_users_by_capability($context, 'local/gamecreator:viewplugin'));
+var_dump(get_users_by_capability($context, 'moodle/course:update'));
 
 require_capability('local/gamecreator:viewplugin', $context);
 
