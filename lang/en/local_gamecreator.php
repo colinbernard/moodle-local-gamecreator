@@ -23,6 +23,7 @@ $string['category'] = 'Category';
 $string['platform'] = 'Platform';
 $string['description'] = 'Description';
 $string['submit'] = 'Submit';
+$string['email'] = 'Email';
 
 
 // balloons

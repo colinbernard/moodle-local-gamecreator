@@ -30,10 +30,10 @@ class handler {
   public static function get_all_games() {
   	return array(
       new game("Balloons", array("balloonsinfo1", "balloonsinfo2"), array("balloons_form1", "balloons_form2"), "balloons", 920, 720, true),
-      new game("Arrange", array("arrangeinfo"), array("arrange_form"), "arrange", 600, 800),
-      new game("Categories2", array("categories2info"), array("categories2_form"), "categories2", 600, 800),
-      new game("Categories3", array("categories3info"), array("categories3_form"), "categories3", 600, 800),
-      new game("Spider Love", array("spiderloveinfo"), array("spiderlove_form"), "spiderlove", 600, 800),
+      new game("Arrange", array("arrangeinfo"), array("arrange_form"), "arrange", 600, 700),
+      new game("Categories2", array("categories2info"), array("categories2_form"), "categories2", 600, 700),
+      new game("Categories3", array("categories3info"), array("categories3_form"), "categories3", 600, 700),
+      new game("Spider Love", array("spiderloveinfo"), array("spiderlove_form"), "spiderlove", 600, 700),
       new game("Venn Diagram", array("venndiagraminfo1", "venndiagraminfo2"), array("venn_diagram_form1", "venn_diagram_form2"), "venn_diagram", 660, 490),
       new game("Image Labelling", array("imagelabelsinfo", "imagelabelsinfo2"), array("image_labels_form1", "image_labels_form2"), "image_labels", 560, 610)
     );
