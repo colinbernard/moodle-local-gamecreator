@@ -3,15 +3,18 @@
     document.getElementById("results").style.display = "none";
     document.getElementById("edit").style.display = "block";
     document.getElementById("editBtn").disabled = true;
+    document.getElementById("gameBtn").disabled = false;
   }
 
   function showGame() {
     document.getElementById("results").style.display = "block";
     document.getElementById("edit").style.display = "none";
+    document.getElementById("gameBtn").disabled = true
     document.getElementById("editBtn").disabled = false;
   }
 
 </script>
+
 
 <a href="index.php?start=1"><button value="Back">Back to Start Screen</button></a>
 <button id="editBtn" onclick="showEdit()">Edit Game</button>
