@@ -39,6 +39,10 @@ class addtodb_form extends moodleform {
     $mform->setType('author', PARAM_TEXT);
     $mform->addRule('author', get_string('required'), 'required', null);
 
+		$mform->addElement('text', 'email', get_string('email', 'local_gamecreator'));
+		$mform->setType('email', PARAM_NOTAGS);
+		$mform->addRule('email', get_string('required'), 'required', null);
+
     $mform->addElement('select', 'category', get_string('category', 'local_gamecreator'), $categories_arr);
 
     $mform->addElement('select', 'platform', get_string('platform', 'local_gamecreator'), $platforms_arr);
