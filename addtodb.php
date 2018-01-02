@@ -12,7 +12,7 @@ $PAGE->set_title($title);
 $PAGE->set_heading($title);
 $PAGE->set_url($CFG->wwwroot.'/local/gamecreator/addtodb');
 
-
+$approval_output = $PAGE->get_renderer('local_gamecreator');
 
 echo $OUTPUT->header();
 ?>
@@ -21,8 +21,7 @@ echo $OUTPUT->header();
 
 <?php
 
-$context = \context_system::instance();
-require_capability('local/gamecreator:viewplugin', $context);
+// require_capability('local/gamecreator:viewplugin', $context);
 
 
 $addtodb_form = new addtodb_form(null, array('width' => $_POST['width'], 'height' => $_POST['height'], 'link' => $_POST['link']));
@@ -38,18 +37,14 @@ if ($addtodb_form->is_cancelled()) {
   \local_gamecreator\game\handler::reset_current_game();
 
   $id = local_gamecreator_add_to_db($fromform);
-  redirect($CFG->wwwroot .'/local/gamespage/index.php');
+  //redirect($CFG->wwwroot .'/local/gamespage/index.php');
+  $renderable = new \local_gamecreator\output\approval_html();
+  echo $approval_output->render($renderable);
+
 
 } else {
   $addtodb_form->display();
 }
 
-?>
-
-<?php if (isset($id)): ?>
-  <p>Success! You can find your game <a href="<?=$CFG->wwwroot?>/local/gamespage/index.php">here</a>.</p>
-<?php endif ?>
-
-<?php
 echo $OUTPUT->footer();
 ?>
