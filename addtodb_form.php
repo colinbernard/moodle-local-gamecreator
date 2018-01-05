@@ -11,17 +11,9 @@ class addtodb_form extends moodleform {
 		global $CFG;
 
     $categories = local_gamespage_get_all_game_categories();
-    $platforms = local_gamespage_get_all_game_platforms();
-
     $categories_arr = [];
-    $platforms_arr = [];
-
     foreach ($categories as $category) {
       $categories_arr[$category->id] = $category->name;
-    }
-
-    foreach ($platforms as $platform) {
-      $platforms_arr[$platform->id] = $platform->name;
     }
 
 
@@ -44,8 +36,6 @@ class addtodb_form extends moodleform {
 		$mform->addRule('email', get_string('required'), 'required', null);
 
     $mform->addElement('select', 'category', get_string('category', 'local_gamecreator'), $categories_arr);
-
-    $mform->addElement('select', 'platform', get_string('platform', 'local_gamecreator'), $platforms_arr);
 
     // hidden
     $mform->addElement('hidden', 'width', $this->_customdata['width']);

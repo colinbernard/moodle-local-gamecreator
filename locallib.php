@@ -19,7 +19,7 @@ function local_gamecreator_add_to_db($data) {
 	$record->author = $data->author;
 	$record->author_email = $data->email;
 	$record->cid = $data->category;
-	$record->pid = $data->platform;
+	$record->pid = 1; // always HTML5 (2 is for flash)
 	$record->status = "pending"; // submitted games require approval
 
 	$game_id = $DB->insert_record('game', $record);
