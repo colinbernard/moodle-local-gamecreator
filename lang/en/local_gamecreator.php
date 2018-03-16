@@ -90,3 +90,7 @@ $string['imagelabelsinfo2'] = 'Upload a picture (jpg or png) that is approximate
 $string['image_labels_answer'] = 'Answer';
 $string['numbuttons'] = "Number of Buttons (Labels)";
 $string['numbuttons_help'] = "This is the number of buttons at the bottom of the screen. If the image you will be using has A-F labels, you should choose to have A-F buttons at the bottom.";
+
+// invaders
+$string['invadersinfo'] = 'You have selected the game type "Invaders", fill out the following information to continue creating your own version of the game. View the help buttons if you are unclear on how to fill out the form.';
+$string['invadersinfo2'] = 'Enter question data for your Invaders game. Do NOT include the answer as one of the options. The options MUST be different than the supplied answer. View the help buttons if you are unclear on how to fill out the form.';
