@@ -4,7 +4,6 @@ use \local_gamecreator\game\handler;
 
 require_once(__DIR__ . '/../../config.php');
 require_once('initial_form.php');
-require_once('locallib.php');
 
 
 // set up the page
