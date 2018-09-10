@@ -89,6 +89,7 @@ if (is_null(handler::get_current_game()) || isset($_GET['start'])) {
 	  	$info = format_text(get_string($game->get_current_info(), 'local_gamecreator'), FORMAT_MARKDOWN);
 	  	echo $OUTPUT->box($info);
 	  	$game_form->display();
+			handler::reset_current_game();
 			?></div><?php
 	  }
 
