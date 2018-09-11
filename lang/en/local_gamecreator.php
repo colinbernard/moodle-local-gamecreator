@@ -4,8 +4,8 @@ $string['gamecreator:viewplugin'] = "Use the Game Creator plugin.";
 
 
 // general
-$string['pluginname'] = 'BCLN Game Creator';
-$string['heading'] = 'BCLN Game Creator';
+$string['pluginname'] = 'WCLN Game Creator';
+$string['heading'] = 'WCLN Game Creator';
 $string['gametype_select'] = 'Select a game type';
 $string['next'] = 'Next';
 $string['gametitle'] = 'Game title';
