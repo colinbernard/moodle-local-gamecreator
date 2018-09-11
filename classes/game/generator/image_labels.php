@@ -16,7 +16,7 @@ class image_labels {
 		mkdir($CFG->dirroot . '/LOR/games/image_labels/versions/' . $title);
 
 		// save the image
-		$game_form->save_file('mainpic', $CFG->dirroot . '/LOR/games/image_labels/versions/'.$title.'/mainpic.jpg');
+		$game_form->save_file('mainpic', $CFG->dirroot . '/LOR/games/image_labels/versions/'.$title.'/mainpic.jpg', true);
 
 		// create JSON file with question and answer data
 		$file = fopen("../../LOR/games/image_labels/versions/" . $title . '/questions.json', 'w');

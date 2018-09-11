@@ -50,14 +50,19 @@ class categories3_form extends moodleform {
 
 	public function validation($data, $files) {
 		global $CFG;
+		global $SESSION;
 
 		$errors = parent::validation($data, $files);
 
 		$foldername = $data['foldername'];
 		$filename = $CFG->dirroot . '/LOR/games/potato_categories3/versions/' . $foldername;
 
-		if (file_exists($filename)) {
+		// Check if the folder already exists AND we aren't editing the game we just created.
+		if (file_exists($filename) && $SESSION->last_created_folder_name != $foldername) {
 			$errors['foldername'] = get_string('versionexists', 'local_gamecreator');
+		} else {
+			// The folder will be created, store the foldername in case we need to edit the game and allow overwriting it.
+			$SESSION->last_created_folder_name = $foldername;
 		}
 
 		if (strlen((string)$data['answers']) != 5) {

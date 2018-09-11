@@ -20,6 +20,7 @@ class handler {
   public static function reset_current_game() {
     global $SESSION;
     unset($SESSION->current_game);
+    unset($SESSION->last_created_folder_name); // Applies to games requiring a folder with only one form.
 
     foreach (self::get_all_games() as $game) {
   		$game->form_index = 0;
