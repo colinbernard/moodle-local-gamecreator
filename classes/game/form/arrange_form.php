@@ -9,6 +9,7 @@ require_once($CFG->libdir.'/formslib.php');
 use moodleform;
 
 class arrange_form extends moodleform {
+
 	protected function definition() {
 		global $CFG;
 
@@ -34,16 +35,20 @@ class arrange_form extends moodleform {
 
 	public function validation($data, $files) {
 		global $CFG;
+		global $SESSION; // Required for checking if we are editing a game we just created.
 
 		$errors = parent::validation($data, $files);
 
 		$foldername = $data['foldername'];
 		$filename = $CFG->dirroot . '/LOR/games/arrange/versions/' . $foldername;
 
-		if (file_exists($filename)) {
+		// Check if the folder already exists AND we aren't editing the game we just created.
+		if (file_exists($filename) && $SESSION->last_created_folder_name != $foldername) {
 			$errors['foldername'] = get_string('versionexists', 'local_gamecreator');
+		} else {
+			// The folder will be created, store the foldername in case we need to edit the game and allow overwriting it.
+			$SESSION->last_created_folder_name = $foldername;
 		}
-
 
 		return $errors;
 	}

@@ -20,6 +20,7 @@ class handler {
   public static function reset_current_game() {
     global $SESSION;
     unset($SESSION->current_game);
+    unset($SESSION->last_created_folder_name); // Applies to games requiring a folder with only one form.
 
     foreach (self::get_all_games() as $game) {
   		$game->form_index = 0;
@@ -36,7 +37,8 @@ class handler {
       new game("Spider Love", array("spiderloveinfo"), array("spiderlove_form"), "spiderlove", 600, 700),
       new game("Venn Diagram", array("venndiagraminfo1", "venndiagraminfo2"), array("venn_diagram_form1", "venn_diagram_form2"), "venn_diagram", 660, 490),
       new game("Image Labelling", array("imagelabelsinfo", "imagelabelsinfo2"), array("image_labels_form1", "image_labels_form2"), "image_labels", 560, 610),
-      new game("Invaders", array("invadersinfo", "invadersinfo2"), array("invaders_form1", "invaders_form2"), "invaders", 910, 710, true)
+      new game("Invaders", array("invadersinfo", "invadersinfo2"), array("invaders_form1", "invaders_form2"), "invaders", 910, 710, true),
+      new game("Memory", array("memoryinfo"), array("memory_form"), "memory", 910, 500)
     );
   }
 

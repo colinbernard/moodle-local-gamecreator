@@ -16,27 +16,27 @@
 </script>
 
 
-<a href="index.php?start=1"><button value="Back">Back to Start Screen</button></a>
+<a href="index.php"><button value="Back">Back to Start Screen</button></a>
 <button id="editBtn" onclick="showEdit()">Edit Game</button>
 <button id="gameBtn" onclick="showGame()" disabled>Show Game</button>
 
 
 <div id="results">
-  <p>Custom BCLN game created successfully! To include it in a course, copy the text below and paste it into the course page HTML.</p>
+  <p>Custom WCLN game created successfully! To include it in a course, copy the text below and paste it into the course page HTML.</p>
   <textarea rows="4" cols="140">
-  <p><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
+  <p align="center"><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
   </textarea>
 
   <p>
-    <form action="/local/lor/insert.php" method="POST">
+    <form target="_blank" action="/local/lor/insert.php" method="POST">
       <input type="hidden" value="{{link}}" name="gamecreator">
-      <button type="submit" name="Submit">Add to BCLN Games Page</button>
-      If your game is ready and tested, please add it to the <a href="https://bclearningnetwork.com/local/lor/index.php?type=1" target="_blank" >BCLN Games Page</a>
+      <button type="submit" name="Submit">Add to LOR</button>
+      If your game is ready and tested, please add it to the <a href="https://bclearningnetwork.com/local/lor/index.php?type=1" target="_blank" >WCLN LOR page</a>.
     </form>
   </p>
 
   <p>It is a good idea to test your game to make sure nothing went wrong, here is a preview:</p>
-  <p><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
+  <p align="center"><iframe src="{{link}}" allowfullscreen="" frameborder="0" height="{{height}}" width="{{width}}"></iframe></p>
 </div>
 
 <div id="edit" style="display: none">

@@ -17,16 +17,17 @@ class categories3 {
 		$answersfile = fopen($CFG->dirroot . '/LOR/games/potato_categories3/versions/' . $foldername . "/answers.txt", 'w') or die("Unable to create answers text file.");
 		fwrite($answersfile, $data->answers);
 
-		$game_form->save_file('category1', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/category1.png');
-		$game_form->save_file('category2', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/category2.png');
-		$game_form->save_file('category3', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/category3.png');
+		// 'true' parameter means if there are existing images they can be overwritten.
+		$game_form->save_file('category1', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/category1.png', true);
+		$game_form->save_file('category2', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/category2.png', true);
+		$game_form->save_file('category3', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/category3.png', true);
 
 
-		$game_form->save_file('question1', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question1.png');
-		$game_form->save_file('question2', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question2.png');
-		$game_form->save_file('question3', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question3.png');
-		$game_form->save_file('question4', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question4.png');
-		$game_form->save_file('question5', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question5.png');
+		$game_form->save_file('question1', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question1.png', true);
+		$game_form->save_file('question2', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question2.png', true);
+		$game_form->save_file('question3', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question3.png', true);
+		$game_form->save_file('question4', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question4.png', true);
+		$game_form->save_file('question5', $CFG->dirroot . '/LOR/games/potato_categories3/versions/'.$foldername.'/question5.png', true);
 
 		$link = new moodle_url("/LOR/games/potato_categories3/potato_categories3.php?title=" . rawurlencode($foldername));
 		$link = str_replace("http:", "https:", $link);

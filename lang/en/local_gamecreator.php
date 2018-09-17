@@ -4,8 +4,8 @@ $string['gamecreator:viewplugin'] = "Use the Game Creator plugin.";
 
 
 // general
-$string['pluginname'] = 'BCLN Game Creator';
-$string['heading'] = 'BCLN Game Creator';
+$string['pluginname'] = 'WCLN Game Creator';
+$string['heading'] = 'WCLN Game Creator';
 $string['gametype_select'] = 'Select a game type';
 $string['next'] = 'Next';
 $string['gametitle'] = 'Game title';
@@ -94,3 +94,7 @@ $string['numbuttons_help'] = "This is the number of buttons at the bottom of the
 // invaders
 $string['invadersinfo'] = 'You have selected the game type "Invaders", fill out the following information to continue creating your own version of the game. View the help buttons if you are unclear on how to fill out the form.';
 $string['invadersinfo2'] = 'Enter question data for your Invaders game. Do NOT include the answer as one of the options. The options MUST be different than the supplied answer. View the help buttons if you are unclear on how to fill out the form.';
+
+// memory
+$string['memoryinfo'] = 'You have selected the game type "Memory". You must provide 10 images (5 pairs). The images must be of type JPG. Enter a folder name to identify this game. This folder name will not be visible when playing the game.';
+$string['pair'] = 'Pair';
