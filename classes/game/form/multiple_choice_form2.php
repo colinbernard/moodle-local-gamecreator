@@ -33,7 +33,7 @@ class multiple_choice_form2 extends moodleform {
       $mform->setType("a_$question", PARAM_TEXT);
 
 			// options (3)
-			for ($i = 0; $i < 4; $i++) {
+			for ($i = 0; $i < 3; $i++) {
 				$mform->addElement('text', "o_$question"."_".$i, get_string('option', 'local_gamecreator'));
   	    $mform->addRule("o_$question"."_".$i, get_string('required'), 'required', null);
 				$mform->setType("o_$question"."_".$i, PARAM_TEXT);
