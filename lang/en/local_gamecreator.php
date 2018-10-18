@@ -98,3 +98,16 @@ $string['invadersinfo2'] = 'Enter question data for your Invaders game. Do NOT i
 // memory
 $string['memoryinfo'] = 'You have selected the game type "Memory". You must provide 10 images (5 pairs). The images must be of type JPG. Enter a folder name to identify this game. This folder name will not be visible when playing the game.';
 $string['pair'] = 'Pair';
+
+// multiple choice
+$string['multiplechoiceinfo'] = 'You have selected the game type "Multiple Choice Quiz". Enter a title and description for your quiz. You will need to provide text based questions each with 1 answer and 3 incorrect options. On this page, specify the number of questions you will be adding. You will be unable to use this tool to add more questions later or remove questions. For each question, you will be able to provide an optional question image as well.';
+$string['multiplechoiceinfo2'] = 'Provide question information. For each question section: provide the question text, JPG or PNG question image (optional), answer, and 3 incorrect options. The answer and options will be shuffled for each question so the order they are provided in makes no difference. However, the order the questions are provided in will remain the same.';
+$string['quiztitle'] = 'Quiz title';
+$string['quiztitle_help'] = 'The quiz title will be displayed at the top of the quiz window throughout the quiz duration. It will also be visible in the quiz URL.';
+$string['quiztitle_error'] = 'Quiz title is too long!';
+$string['numquestionsquiz'] = 'Number of questions';
+$string['quizinstructions'] = 'Quiz instructions';
+$string['quizinstructions_help'] = 'The description will be shown on the start page and should tell the user how the quiz works, as well as the material they should expect to be quizzed on.';
+$string['quizinstructions_error'] = 'Quiz instructions are too long!';
+$string['createquiz'] = 'Create Quiz';
+$string['questionimage'] = 'Question Image';

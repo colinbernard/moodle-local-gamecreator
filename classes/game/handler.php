@@ -38,7 +38,8 @@ class handler {
       new game("Venn Diagram", array("venndiagraminfo1", "venndiagraminfo2"), array("venn_diagram_form1", "venn_diagram_form2"), "venn_diagram", 660, 490),
       new game("Image Labelling", array("imagelabelsinfo", "imagelabelsinfo2"), array("image_labels_form1", "image_labels_form2"), "image_labels", 560, 610),
       new game("Invaders", array("invadersinfo", "invadersinfo2"), array("invaders_form1", "invaders_form2"), "invaders", 910, 710, true),
-      new game("Memory", array("memoryinfo"), array("memory_form"), "memory", 910, 500)
+      new game("Memory", array("memoryinfo"), array("memory_form"), "memory", 910, 500),
+      new game("Multiple Choice Quiz", array("multiplechoiceinfo", "multiplechoiceinfo2"), array("multiple_choice_form1", "multiple_choice_form2"), "multiple_choice", 800, 800)
     );
   }
 
