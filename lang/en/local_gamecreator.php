@@ -18,12 +18,15 @@ $string['foldername'] = 'Folder name';
 $string['versionexists'] = 'This game name already exists. Please choose a unique name.';
 $string['image'] = 'Image';
 $string['title'] = 'Title';
+$string['title_error'] = 'Title is too long!';
 $string['author'] = 'Your name';
 $string['category'] = 'Category';
 $string['platform'] = 'Platform';
 $string['description'] = 'Description';
 $string['submit'] = 'Submit';
 $string['email'] = 'Email';
+$string['too_long'] = 'Too long!';
+$string['create'] = 'Create';
 
 
 // balloons
@@ -111,3 +114,14 @@ $string['quizinstructions_help'] = 'The description will be shown on the start p
 $string['quizinstructions_error'] = 'Quiz instructions are too long!';
 $string['createquiz'] = 'Create Quiz';
 $string['questionimage'] = 'Question Image';
+
+// two sort
+$string['twosortinfo'] = 'You have selected the game type "Two Sort". Enter a title for your game which will be displayed at the top of the game window. Specify the names of the two columns which items will be dragged into. Finally, select the number of items to be sorted.';
+$string['twosortinfo2'] = 'Provide items to be sorted.';
+$string['left_column'] = 'Left column name';
+$string['right_column'] = 'Right column name';
+$string['item_name'] = 'Item name';
+$string['item_name_help'] = 'This will be the name of the item to be sorted into one of your two columns. This name will be displayed.';
+$string['two_sort_title_help'] = 'This title will be displayed at the top of the game window.';
+$string['two_sort_number_of_items'] = 'Number of items to sort';
+$string['correct_column'] = 'Correct column';
