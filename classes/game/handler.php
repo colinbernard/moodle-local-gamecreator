@@ -40,7 +40,7 @@ class handler {
       new game("Invaders", array("invadersinfo", "invadersinfo2"), array("invaders_form1", "invaders_form2"), "invaders", 910, 710, true),
       new game("Memory", array("memoryinfo"), array("memory_form"), "memory", 910, 500),
       new game("Multiple Choice Quiz", array("multiplechoiceinfo", "multiplechoiceinfo2"), array("multiple_choice_form1", "multiple_choice_form2"), "multiple_choice", 800, 800),
-      new game("Two Sort", array("twosortinfo", "twosortinfo2"), array("two_sort_form", "two_sort_form2"), "two_sort", 900, 590)
+      new game("Two Sort", array("twosortinfo", "twosortinfo2"), array("two_sort_form1", "two_sort_form2"), "two_sort", 900, 590)
     );
   }
 

@@ -17,7 +17,7 @@ class two_sort_form1 extends moodleform {
 		// Title.
 		$mform->addElement('text', 'title', get_string('title', 'local_gamecreator'));
 		$mform->setType('title', PARAM_TEXT);
-		$mform->addHelpButton('title', 'two_sort_title_help', 'local_gamecreator');
+		$mform->addHelpButton('title', 'two_sort_title', 'local_gamecreator');
 		$mform->addRule('title', get_string('required'), 'required', null);
 
 		if (isset($_SESSION['title'])) {
@@ -66,8 +66,8 @@ class two_sort_form1 extends moodleform {
 		$errors = parent::validation($data, $files);
 
 		$title = $data['title'];
-		$left_column = $data['left_column'];
-    $right_column = $data['right_column'];
+		$left_column = $data['left'];
+    $right_column = $data['right'];
 
 		$filename = $CFG->dirroot . "/LOR/games/two_sort/versions/$title.json";
 
@@ -80,11 +80,11 @@ class two_sort_form1 extends moodleform {
 		}
 
 		if (strlen($left_column) > 30) {
-			$errors['left_column'] = get_string('too_long', 'local_gamecreator');
+			$errors['left'] = get_string('too_long', 'local_gamecreator');
 		}
 
     if (strlen($right_column) > 30) {
-      $errors['right_column'] = get_string('too_long', 'local_gamecreator');
+      $errors['right'] = get_string('too_long', 'local_gamecreator');
     }
 
 		return $errors;

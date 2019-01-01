@@ -10,6 +10,9 @@ class two_sort {
 	public static function generate($data, &$form) {
     global $CFG;
 
+    // Saving title before data is converted to assoc array.
+    $title = $data->title;
+
     // Initialize to_json, an object which will be converted to JSON later.
     $to_json = new \stdClass();
     $to_json->title = $data->title;
