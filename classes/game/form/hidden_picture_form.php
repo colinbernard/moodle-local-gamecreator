@@ -14,6 +14,12 @@ class hidden_picture_form extends moodleform {
 
 		$mform = $this->_form;
 
+    // Title.
+    $mform->addElement('text', 'title', get_string('title', 'local_gamecreator'));
+    $mform->setType('title', PARAM_TEXT);
+    $mform->addHelpButton('title', 'hidden_picture_title', 'local_gamecreator');
+    $mform->addRule('title', get_string('required'), 'required', null);
+
 		// Prompt.
 		$mform->addElement('text', 'prompt', get_string('hidden_picture_prompt', 'local_gamecreator'));
 		$mform->setType('prompt', PARAM_TEXT);
@@ -59,6 +65,16 @@ class hidden_picture_form extends moodleform {
 		global $CFG;
 
 		$errors = parent::validation($data, $files);
+
+    $filename = $CFG->dirroot . "/LOR/games/hidden_picture/versions/$title.json";
+
+    if (file_exists($filename)) {
+      $errors['title'] = get_string('versionexists', 'local_gamecreator');
+    }
+
+    if (strlen($title) > 100) {
+      $errors['title'] = get_string('title_error', 'local_gamecreator');
+    }
 
 
 		if (strlen($data['prompt']) > 100) {
