@@ -25,14 +25,14 @@ class hidden_picture_form extends moodleform {
 		$mform->setType('prompt', PARAM_TEXT);
 		$mform->addHelpButton('prompt', 'hidden_picture_prompt', 'local_gamecreator');
 		$mform->addRule('prompt', get_string('required'), 'required', null);
-    $mform->setDefault('prompt', get_string('hidden_picture_prompt_default'));
+    $mform->setDefault('prompt', get_string('hidden_picture_prompt_default', 'local_gamecreator'));
 
     // Congratulations.
     $mform->addElement('text', 'congratulations', get_string('hidden_picture_congratulations', 'local_gamecreator'));
     $mform->setType('congratulations', PARAM_TEXT);
     $mform->addHelpButton('congratulations', 'hidden_picture_congratulations', 'local_gamecreator');
     $mform->addRule('congratulations', get_string('required'), 'required', null);
-    $mform->setDefault('congratulations', get_string('hidden_picture_congratulations_default'));
+    $mform->setDefault('congratulations', get_string('hidden_picture_congratulations_default', 'local_gamecreator'));
 
     // Font-size.
     $font_sizes_arr = [12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
@@ -42,23 +42,23 @@ class hidden_picture_form extends moodleform {
     $mform->setDefault('font_size', 20);
 
     // Questions & Answers header.
-    $mform->addElement('header', 'dataheader', get_string('hidden_picture_header'));
+    $mform->addElement('header', 'dataheader', get_string('hidden_picture_header', 'local_gamecreator'));
 
     // 16 questions and answers.
     for ($i = 0; $i < 16; $i++) {
 
       // Question i.
-      $mform->addElement('text', "question$i", get_string('question', 'local_gamecreator') . ($i + 1));
+      $mform->addElement('text', "question$i", get_string('question', 'local_gamecreator') . ' ' . ($i + 1));
       $mform->setType("question$i", PARAM_RAW);
       $mform->addRule("question$i", get_string('required'), 'required', null);
 
       // Answer i.
-      $mform->addElement('text', "answer$i", get_string('question', 'local_gamecreator') . ($i + 1));
+      $mform->addElement('text', "answer$i", get_string('question', 'local_gamecreator') . ' ' . ($i + 1));
       $mform->setType("answer$i", PARAM_RAW);
       $mform->addRule("answer$i", get_string('required'), 'required', null);
     }
 
-		$this->add_action_buttons(true, get_string('next', 'local_gamecreator'));
+		$this->add_action_buttons(true, get_string('create', 'local_gamecreator'));
 	}
 
 	public function validation($data, $files) {
