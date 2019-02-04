@@ -129,8 +129,11 @@ $string['correct_column'] = 'Correct column';
 // Hidden Picture.
 $string['hidden_picture_info'] = 'You have selected the game type "Hidden Picture". Enter a prompt which will appear at the top of the game. Enter congratulations text which will replace the prompt text once the user completes the game. Enter the font-size to use for the answer tiles. Finally, enter 16 questions and answers.';
 $string['hidden_picture_prompt'] = 'Prompt';
+$string['hidden_picture_prompt_default'] = 'Click the tile below which solves the problem.';
 $string['hidden_picture_prompt_help'] = 'This prompt will be displayed at the top of the game. It describe the action required by the student/user. E.g. "Use the distributive principle to solve the problem. Click the tile with the answer."';
 $string['hidden_picture_congratulations'] = 'Congratulations message';
+$string['hidden_picture_congratulations_default'] = 'Congratulations! You have solved all the problems!';
 $string['hidden_picture_congratulations_help'] = 'Will replace the prompt when the user completes the game. For example: "Congratulations! You have solved all the problems!"';
 $string['hidden_picture_font_size'] = 'Tile font-size';
 $string['hidden_picture_font_size_help'] = 'The font size (in pixels) of the tile text. If you are using short answers (2 characters or less), increase this to 30. Default is 24.';
+$string['hidden_picture_header'] = 'Questions & Answers';
