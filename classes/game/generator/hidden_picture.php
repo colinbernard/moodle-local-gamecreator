@@ -18,7 +18,7 @@ class hidden_picture {
     $to_json->title = $data->title;
     $to_json->prompt = $data->prompt;
     $to_json->congratulations = $data->congratulations;
-    $to_json->font_size = $data->font_size;
+    $to_json->font_size = $data->font_size + "px";
     $to_json->questions = [];
 
     // Convert the form data to an associative array.

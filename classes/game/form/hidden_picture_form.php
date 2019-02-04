@@ -35,7 +35,7 @@ class hidden_picture_form extends moodleform {
     $mform->setDefault('congratulations', get_string('hidden_picture_congratulations_default', 'local_gamecreator'));
 
     // Font-size.
-    $font_sizes_arr = [12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+    $font_sizes_arr = [12 => 12, 14 => 14, 16 => 16, 18 => 18, 20 => 20, 22 => 22, 24 => 24, 26 => 26, 28 => 28, 30 => 30];
     $mform->addElement('select', 'font_size', get_string('hidden_picture_font_size', 'local_gamecreator'), $font_sizes_arr);
     $mform->addHelpButton('font_size', 'hidden_picture_font_size', 'local_gamecreator');
     $mform->addRule('font_size', get_string('required'), 'required', null);
