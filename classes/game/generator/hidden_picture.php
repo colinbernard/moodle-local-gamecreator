@@ -40,12 +40,12 @@ class hidden_picture {
     }
 
     // Create JSON file with version data.
-		$file = fopen("../../LOR/games/hidden_picture/versions/$title.json", 'w');
+		$file = fopen("../../_LOR/games/hidden_picture/versions/$title.json", 'w');
 		fwrite($file, json_encode($to_json));
 		fclose($file);
 
     // Create URL for this version and return it.
-		$link = new moodle_url("/LOR/games/hidden_picture/index.html?version=" . rawurlencode($title));
+		$link = new moodle_url("/_LOR/games/hidden_picture/index.html?version=" . rawurlencode($title));
 		$link = str_replace("http:", "https:", $link);
 		return $link;
 	}

@@ -53,7 +53,7 @@ class hidden_picture_form extends moodleform {
       $mform->addRule("question$i", get_string('required'), 'required', null);
 
       // Answer i.
-      $mform->addElement('text', "answer$i", get_string('question', 'local_gamecreator') . ' ' . ($i + 1));
+      $mform->addElement('text', "answer$i", get_string('answer', 'local_gamecreator') . ' ' . ($i + 1));
       $mform->setType("answer$i", PARAM_RAW);
       $mform->addRule("answer$i", get_string('required'), 'required', null);
     }
@@ -66,7 +66,7 @@ class hidden_picture_form extends moodleform {
 
 		$errors = parent::validation($data, $files);
 
-    $filename = $CFG->dirroot . "/LOR/games/hidden_picture/versions/$title.json";
+    $filename = $CFG->dirroot . "/_LOR/games/hidden_picture/versions/$title.json";
 
     if (file_exists($filename)) {
       $errors['title'] = get_string('versionexists', 'local_gamecreator');

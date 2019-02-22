@@ -69,7 +69,7 @@ class two_sort_form1 extends moodleform {
 		$left_column = $data['left'];
     $right_column = $data['right'];
 
-		$filename = $CFG->dirroot . "/LOR/games/two_sort/versions/$title.json";
+		$filename = $CFG->dirroot . "/_LOR/games/two_sort/versions/$title.json";
 
 		if (file_exists($filename)) {
 			$errors['title'] = get_string('versionexists', 'local_gamecreator');

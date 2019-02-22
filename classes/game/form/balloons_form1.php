@@ -75,7 +75,7 @@ class balloons_form1 extends moodleform {
 		$title = $data['gametitle'];
 		$description = $data['gamedescription'];
 
-		$filename = $CFG->dirroot . '/LOR/games/balloons/versions/' . $title . ".json";
+		$filename = $CFG->dirroot . '/_LOR/games/balloons/versions/' . $title . ".json";
 
 		if (file_exists($filename)) {
 			$errors['gametitle'] = get_string('versionexists', 'local_gamecreator');

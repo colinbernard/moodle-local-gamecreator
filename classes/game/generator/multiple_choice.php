@@ -14,7 +14,7 @@ class multiple_choice {
     $title = $data->title;
 
     // Create a directory for this version.
-    mkdir($CFG->dirroot . '/LOR/games/multiple_choice/versions/' . $title);
+    mkdir($CFG->dirroot . '/_LOR/games/multiple_choice/versions/' . $title);
 
     // Initialize to_json, an object which will be converted to JSON later.
     $to_json = new \stdClass();
@@ -39,7 +39,7 @@ class multiple_choice {
 
       // Save images in version directory.
       // 'true' parameter means if there are existing images they can be overwritten.
-      $form->save_file("image_$i", $CFG->dirroot . '/LOR/games/multiple_choice/versions/'.$title.'/'.$question->image, true);
+      $form->save_file("image_$i", $CFG->dirroot . '/_LOR/games/multiple_choice/versions/'.$title.'/'.$question->image, true);
 
       // Access the answer text from the form data array.
       $question->answer = $data["a_$i"];
@@ -61,12 +61,12 @@ class multiple_choice {
     }
 
     // Create JSON file with version data.
-		$file = fopen("../../LOR/games/multiple_choice/versions/$title/$title.json", 'w');
+		$file = fopen("../../_LOR/games/multiple_choice/versions/$title/$title.json", 'w');
 		fwrite($file, json_encode($to_json));
 		fclose($file);
 
     // Create URL for this version and return it.
-		$link = new moodle_url("/LOR/games/multiple_choice/index.php?title=" . rawurlencode($title));
+		$link = new moodle_url("/_LOR/games/multiple_choice/index.php?title=" . rawurlencode($title));
 		$link = str_replace("http:", "https:", $link);
 		return $link;
 	}

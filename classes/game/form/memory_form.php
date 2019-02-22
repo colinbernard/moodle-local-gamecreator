@@ -59,7 +59,7 @@ class memory_form extends moodleform {
 		$errors = parent::validation($data, $files);
 
 		$foldername = $data['foldername'];
-		$filename = $CFG->dirroot . '/LOR/games/memory/versions/' . $foldername;
+		$filename = $CFG->dirroot . '/_LOR/games/memory/versions/' . $foldername;
 
 		// Check if the folder already exists AND we aren't editing the game we just created.
 		if (file_exists($filename) && $SESSION->last_created_folder_name != $foldername) {

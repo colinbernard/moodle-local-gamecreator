@@ -13,13 +13,13 @@ class image_labels {
 		$title = $data->title;;
 
 		// make a directory for the version
-		mkdir($CFG->dirroot . '/LOR/games/image_labels/versions/' . $title);
+		mkdir($CFG->dirroot . '/_LOR/games/image_labels/versions/' . $title);
 
 		// save the image
-		$game_form->save_file('mainpic', $CFG->dirroot . '/LOR/games/image_labels/versions/'.$title.'/mainpic.jpg', true);
+		$game_form->save_file('mainpic', $CFG->dirroot . '/_LOR/games/image_labels/versions/'.$title.'/mainpic.jpg', true);
 
 		// create JSON file with question and answer data
-		$file = fopen("../../LOR/games/image_labels/versions/" . $title . '/questions.json', 'w');
+		$file = fopen("../../_LOR/games/image_labels/versions/" . $title . '/questions.json', 'w');
 
 		$towrite = [];
 		for ($i = 0; $i <= $data->numquestions; $i++) {
@@ -32,12 +32,12 @@ class image_labels {
 		fclose($file);
 
 		// create JSON file with number of labels data
-		$file = fopen("../../LOR/games/image_labels/versions/" . $title . '/data.json', 'w');
+		$file = fopen("../../_LOR/games/image_labels/versions/" . $title . '/data.json', 'w');
 		fwrite($file, json_encode($data->numbuttons + 2));
 		fclose($file);
 
 		// generate link to game
-		$link = new moodle_url("/LOR/games/image_labels/index.php?title=" . rawurlencode($title));
+		$link = new moodle_url("/_LOR/games/image_labels/index.php?title=" . rawurlencode($title));
 		$link = str_replace("http:", "https:", $link);
 
 		return $link;
