@@ -53,7 +53,7 @@ class hidden_picture_form extends moodleform {
       $mform->addRule("question$i", get_string('required'), 'required', null);
 
       // Answer i.
-      $mform->addElement('text', "answer$i", get_string('question', 'local_gamecreator') . ' ' . ($i + 1));
+      $mform->addElement('text', "answer$i", get_string('answer', 'local_gamecreator') . ' ' . ($i + 1));
       $mform->setType("answer$i", PARAM_RAW);
       $mform->addRule("answer$i", get_string('required'), 'required', null);
     }
