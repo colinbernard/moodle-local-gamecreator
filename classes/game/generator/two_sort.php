@@ -39,12 +39,12 @@ class two_sort {
     }
 
     // Create JSON file with version data.
-		$file = fopen("../../LOR/games/two_sort/versions/$title.json", 'w');
+		$file = fopen("../../_LOR/games/two_sort/versions/$title.json", 'w');
 		fwrite($file, json_encode($to_json));
 		fclose($file);
 
     // Create URL for this version and return it.
-		$link = new moodle_url("/LOR/games/two_sort/index.php?title=" . rawurlencode($title));
+		$link = new moodle_url("/_LOR/games/two_sort/index.php?title=" . rawurlencode($title));
 		$link = str_replace("http:", "https:", $link);
 		return $link;
 	}

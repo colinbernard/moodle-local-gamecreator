@@ -52,7 +52,7 @@ class categories2_form extends moodleform {
 		$errors = parent::validation($data, $files);
 
 		$foldername = $data['foldername'];
-		$filename = $CFG->dirroot . '/LOR/games/potato_categories2/versions/' . $foldername;
+		$filename = $CFG->dirroot . '/_LOR/games/potato_categories2/versions/' . $foldername;
 
 
 		// Check if the folder already exists AND we aren't editing the game we just created.

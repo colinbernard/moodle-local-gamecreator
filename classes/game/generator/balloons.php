@@ -11,11 +11,11 @@ class balloons {
 
 		$title = $data['title'];
 
-		$file = fopen("../../LOR/games/balloons/versions/" . $title . '.json', 'w');
+		$file = fopen("../../_LOR/games/balloons/versions/" . $title . '.json', 'w');
 		$success = fwrite($file, json_encode($data));
 		fclose($file);
 
-		$link = new moodle_url("/LOR/games/balloons/balloons.php?title=" . rawurlencode($title));
+		$link = new moodle_url("/_LOR/games/balloons/balloons.php?title=" . rawurlencode($title));
 		$link = str_replace("http:", "https:", $link);
 
 		return $link;

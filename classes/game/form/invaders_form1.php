@@ -64,7 +64,7 @@ class invaders_form1 extends moodleform {
 
 		$title = $data['gametitle'];
 
-		$filename = $CFG->dirroot . '/LOR/games/invaders/versions/' . $title . ".json";
+		$filename = $CFG->dirroot . '/_LOR/games/invaders/versions/' . $title . ".json";
 
 		if (file_exists($filename)) {
 			$errors['gametitle'] = get_string('versionexists', 'local_gamecreator');

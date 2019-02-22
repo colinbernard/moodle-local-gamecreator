@@ -66,7 +66,7 @@ class hidden_picture_form extends moodleform {
 
 		$errors = parent::validation($data, $files);
 
-    $filename = $CFG->dirroot . "/LOR/games/hidden_picture/versions/$title.json";
+    $filename = $CFG->dirroot . "/_LOR/games/hidden_picture/versions/$title.json";
 
     if (file_exists($filename)) {
       $errors['title'] = get_string('versionexists', 'local_gamecreator');

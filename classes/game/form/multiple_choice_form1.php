@@ -60,7 +60,7 @@ class multiple_choice_form1 extends moodleform {
 		$title = $data['quiztitle'];
 		$instructions = $data['quizinstructions'];
 
-		$filename = $CFG->dirroot . "/LOR/games/multiple_choice/versions/$title/$title.json";
+		$filename = $CFG->dirroot . "/_LOR/games/multiple_choice/versions/$title/$title.json";
 
 		if (file_exists($filename)) {
 			$errors['quiztitle'] = get_string('versionexists', 'local_gamecreator');
