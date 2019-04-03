@@ -20,7 +20,7 @@ class two_sort_form2 extends moodleform {
       $mform->addElement('text', "item_$item", get_string('item_name', 'local_gamecreator'));
 	    $mform->addRule("item_$item", get_string('required'), 'required', null);
       $mform->addHelpButton("item_$item", 'item_name', 'local_gamecreator');
-      $mform->setType("item_$item", PARAM_TEXT);
+      $mform->setType("item_$item", PARAM_RAW);
 
       // Column radio group.
       $radioarray = array();
